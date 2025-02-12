@@ -7,14 +7,13 @@ public class BossNavigation : MonoBehaviour
 {
     public Transform player;
     private NavMeshAgent agent;
-    public LayerMask playerMask, obstacleMask;
     public Transform[] waypoints;
 
     private int waypointIndex;
 
-    [SerializeField] private float sightRange;
-
     [SerializeField] private bool onSight;
+
+    private LineOfSight LOS;
 
     // Start is called before the first frame update
     void Start()
@@ -26,17 +25,22 @@ public class BossNavigation : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("PlayerTest").transform;
 
+        // Get Line of Sight from child object 
+        LOS = GetComponentInChildren<LineOfSight>();
+        if (LOS != null)
+        {
+            LOS.bossNavigation = this;
+        }
+
         if (waypoints.Length > 0)
         {
-            waypointIndex = Random.Range(0, waypoints.Length); // CHANGE: Randomize initial waypoint
+            waypointIndex = Random.Range(0, waypoints.Length); //Randomize initial waypoint
             agent.SetDestination(waypoints[waypointIndex].position);
         }
     }
     
     void FixedUpdate()
     {
-        // Check if the player is within sight range
-        onSight = PlayerInSight();
 
         if (!onSight)
         {
@@ -49,27 +53,14 @@ public class BossNavigation : MonoBehaviour
 
     }
 
-    private bool PlayerInSight()
+    public void PlayerOnSight()
     {
-        // Check if the player is within sight range
-        if (Physics.CheckSphere(transform.position, sightRange, playerMask))
-        {
-            // Calculate direction to the player
-            Vector3 directionToPlayer = (player.position - transform.position).normalized;
+        onSight = true;
+    }
 
-            // Calculate distance to the player
-            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-            // Perform a raycast to check for obstacles
-            if (!Physics.Raycast(transform.position, directionToPlayer, distanceToPlayer, obstacleMask))
-            {
-                // If no obstacles are in the way, the player is visible
-                return true;
-            }
-        }
-
-        // Player is not visible
-        return false;
+    public void PlayerExitSight()
+    {
+        onSight = false;
     }
 
     private void Patroling()
@@ -91,11 +82,5 @@ public class BossNavigation : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        // Gizmos that shows the sight range
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, sightRange);
-    }
 
 }

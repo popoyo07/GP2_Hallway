@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class LineOfSight : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public BossNavigation bossNavigation;
+    public LayerMask obstacleMask; // Layer mask for obstacles 
+
+    private void OnTriggerStay(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            // Check for obstacles between enemy and player
+            Vector3 directionToPlayer = (other.transform.position - bossNavigation.transform.position).normalized;
+            float distanceToPlayer = Vector3.Distance(bossNavigation.transform.position, other.transform.position);
+
+            if (!Physics.Raycast(bossNavigation.transform.position, directionToPlayer, distanceToPlayer, obstacleMask))
+            {
+                // player is in sight
+                bossNavigation.PlayerOnSight();
+            }
+            else
+            {
+                // Obstacle detected
+                bossNavigation.PlayerExitSight();
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            // Player exited the trigger area
+            bossNavigation.PlayerExitSight();
+        }
     }
 }
