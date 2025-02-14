@@ -5,63 +5,47 @@ using UnityEngine.AI;
 
 public class BossNavigation : MonoBehaviour
 {
-    public Transform player;
+    private GameObject player;
     private NavMeshAgent agent;
     public Transform[] waypoints;
 
+    [SerializeField] LayerMask playerLayers;
+    
     private int waypointIndex;
-
-    [SerializeField] private bool onSight;
-
     private LineOfSight LOS;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        agent.SetDestination(waypoints[0].position);
-    }
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        player = GameObject.Find("PlayerTest").transform;
+        player = GameObject.Find("PlayerTest");
 
         // Get Line of Sight from child object 
         LOS = GetComponentInChildren<LineOfSight>();
-        if (LOS != null)
-        {
-            LOS.bossNavigation = this;
-        }
+       
 
         if (waypoints.Length > 0)
         {
-            waypointIndex = Random.Range(0, waypoints.Length); //Randomize initial waypoint
+            //Randomize initial waypoint
+            waypointIndex = Random.Range(0, waypoints.Length);
             agent.SetDestination(waypoints[waypointIndex].position);
         }
     }
     
-    void FixedUpdate()
+    void Update()
     {
-
-        if (!onSight)
-        {
-            Patroling();
-        }
-        else
+       
+        if (LOS.m_IsPlayerInRange)
         {
             Chase();
         }
+        else
+        {
+            Patroling();
+        }
 
     }
 
-    public void PlayerOnSight()
-    {
-        onSight = true;
-    }
-
-    public void PlayerExitSight()
-    {
-        onSight = false;
-    }
+ 
 
     private void Patroling()
     {
@@ -76,9 +60,10 @@ public class BossNavigation : MonoBehaviour
 
     private void Chase()
     {
-        if (player != null)
+
+        if (player != null && agent != null)
         {
-            agent.destination = player.position;
+            agent.destination = player.transform.position;
         }
     }
 

@@ -4,36 +4,50 @@ using UnityEngine;
 
 public class LineOfSight : MonoBehaviour
 {
-    public BossNavigation bossNavigation;
-    public LayerMask obstacleMask; // Layer mask for obstacles 
+    public GameObject player;
+    public bool m_IsPlayerInRange;
 
-    private void OnTriggerStay(Collider other)
+    [Header("Raycast Settings")]
+    public LayerMask obstacleLayer; // Layer for obstacles (e.g., walls, environment)
+ 
+
+    void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.transform == player.transform)
         {
-            // Check for obstacles between enemy and player
-            Vector3 directionToPlayer = (other.transform.position - bossNavigation.transform.position).normalized;
-            float distanceToPlayer = Vector3.Distance(bossNavigation.transform.position, other.transform.position);
+            m_IsPlayerInRange = true;
+        }
+    }
 
-            if (!Physics.Raycast(bossNavigation.transform.position, directionToPlayer, distanceToPlayer, obstacleMask))
+    void OnTriggerExit(Collider other)
+    {
+        if (other.transform == player.transform)
+        {
+            m_IsPlayerInRange = false;
+        }
+    }
+
+    void Update()
+    {
+        if (m_IsPlayerInRange)
+        {
+            Vector3 direction = player.transform.position - transform.position + Vector3.up;
+            
+
+
+            if (Physics.Raycast(transform.position, direction, out RaycastHit hit, obstacleLayer))
             {
-                // player is in sight
-                bossNavigation.PlayerOnSight();
-            }
-            else
-            {
-                // Obstacle detected
-                bossNavigation.PlayerExitSight();
+                if (hit.transform == player.transform)
+                {
+                    Debug.Log("On Sight!!!!!");
+                }
+                else 
+                {
+                    m_IsPlayerInRange=false;
+                    Debug.Log("Obstacle Obstacle Obstacle");
+                }
             }
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            // Player exited the trigger area
-            bossNavigation.PlayerExitSight();
-        }
-    }
 }
