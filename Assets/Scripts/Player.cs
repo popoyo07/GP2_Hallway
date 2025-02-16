@@ -9,19 +9,22 @@ public class Player : MonoBehaviour
     public Transform cam;
     public float speed = 5f;
     public float sprintSpeed = 10f;
-    public float crouchSpeed = 2.5f;
+    public float proneSpeed = 2.5f;
     public float standingHeight = 2f;
-    public float crouchingHeight = -0.5f;
-    private bool isCrouching = false;
+    public float proneHeight = 0.5f;
+    public bool isProne = false;
     public float standingCamHeight = 0.4f;
-    public float crouchingCamHeight = -0.5f;
+    public float proneCamHeight = -0.5f;
+    private Vector3 originalCenter;
     private bool isSprinting = false;
+   
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
-
+        
+        originalCenter = controller.center;
         // cam kept moving on start, this seems to fix it
         Vector3 cameraPosition = cam.localPosition;
         cameraPosition.y = standingCamHeight;
@@ -41,7 +44,7 @@ public class Player : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
-        if(isCrouching == false)
+        if(isProne == false)
         {
             if(isSprinting == false)
             {
@@ -53,13 +56,13 @@ public class Player : MonoBehaviour
                 controller.Move(move * sprintSpeed * Time.deltaTime);
             }
         }
-        else if (isCrouching == true)
+        else if (isProne == true)
         {
-            controller.Move(move * crouchSpeed * Time.deltaTime);
+            controller.Move(move * proneSpeed * Time.deltaTime);
         }
 
 
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if(Input.GetKeyDown(KeyCode.LeftShift) && isProne == false)
         {
             isSprinting = true;
         }
@@ -74,23 +77,19 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            if(isCrouching == false)
-            {
-                isCrouching = true;
-            }
-
-            else
-            {
-                isCrouching = false;
-            }
+            isProne = !isProne;
         }
 
-        float Height = isCrouching ? crouchingHeight : standingHeight;
-        controller.height = Mathf.Lerp(controller.height, Height, Time.deltaTime * 8f);
+        float targetHeight = isProne ? proneHeight : standingHeight;
+        controller.height = targetHeight;
 
-        float CameraHeight = isCrouching ? crouchingCamHeight : standingCamHeight;
+        float centerY = originalCenter.y - (standingHeight - targetHeight) / 2f;
+        controller.center = new Vector3(originalCenter.x, centerY, originalCenter.z);
+
+        // This cam change took me forver to figure out im not gonna touch it
+        float targetCamHeight = isProne ? proneCamHeight : standingCamHeight;
         Vector3 cameraPosition = cam.localPosition;
-        cameraPosition.y = Mathf.Lerp(cam.localPosition.y, CameraHeight, Time.deltaTime * 8f); // i think this works im not gonna question it
+        cameraPosition.y = targetCamHeight;
         cam.localPosition = cameraPosition;
     }
 }
