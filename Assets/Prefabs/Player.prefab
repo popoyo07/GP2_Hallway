@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3539540356441094789}
   - component: {fileID: 8296070314496514021}
   - component: {fileID: 7169907426188013236}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,6 +158,7 @@ MonoBehaviour:
   isProne: 0
   standingCamHeight: 0.4
   proneCamHeight: -0.5
+  hasCoffe: 0
 --- !u!1 &7944983981090056068
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +171,7 @@ GameObject:
   - component: {fileID: 5998669557529523530}
   - component: {fileID: 3135212267535892629}
   - component: {fileID: 1300757406980281750}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

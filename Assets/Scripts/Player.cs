@@ -17,7 +17,8 @@ public class Player : MonoBehaviour
     public float proneCamHeight = -0.5f;
     private Vector3 originalCenter;
     private bool isSprinting = false;
-   
+    // For future refference 
+    public bool hasCoffe = false;
 
     // Start is called before the first frame update
     void Start()
