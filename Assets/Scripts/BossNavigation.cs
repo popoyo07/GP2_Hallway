@@ -5,15 +5,28 @@ using UnityEngine.AI;
 
 public class BossNavigation : MonoBehaviour
 {
+    [SerializeField] private GameObject gameOver;
     private GameObject player;
     private NavMeshAgent agent;
     public Transform[] waypoints;
+
+    
 
     [SerializeField] LayerMask playerLayers;
     
     private int waypointIndex;
     private LineOfSight LOS;
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+           
+        if (other.transform.tag == "Player")
+        {
+            endGame();
+        }
+        
+    }
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -58,6 +71,12 @@ public class BossNavigation : MonoBehaviour
     {
         // Chase Player
         agent.destination = player.transform.position;
+    }
+
+    private void endGame()
+    {
+        gameOver.SetActive(true);
+        Destroy(gameObject);
     }
 
 
