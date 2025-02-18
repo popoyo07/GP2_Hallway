@@ -17,25 +17,21 @@ public class BossNavigation : MonoBehaviour
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        player = GameObject.Find("PlayerTest");
+        player = GameObject.FindGameObjectWithTag("Player");
 
         // Get Line of Sight from child object 
         LOS = GetComponentInChildren<LineOfSight>();
-       
 
-        if (waypoints.Length > 0)
-        {
-            //Randomize initial waypoint
-            waypointIndex = Random.Range(0, waypoints.Length);
-            agent.SetDestination(waypoints[waypointIndex].position);
-        }
+
+        Patroling();
     }
     
     void Update()
     {
-       
-        if (LOS.m_IsPlayerInRange)
+     
+        if (LOS.canChase)
         {
+        
             Chase();
         }
         else
@@ -60,11 +56,8 @@ public class BossNavigation : MonoBehaviour
 
     private void Chase()
     {
-
-        if (player != null && agent != null)
-        {
-            agent.destination = player.transform.position;
-        }
+        // Chase Player
+        agent.destination = player.transform.position;
     }
 
 
