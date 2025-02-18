@@ -149,13 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc676a47e98bebc47bc99f7f99498501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOver: {fileID: 0}
   waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
