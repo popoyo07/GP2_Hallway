@@ -4,11 +4,14 @@ using Unity.VisualScripting;
 using System.Net;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
     public GameObject pause;
     private bool isPaused;
+
+    public EventSystem eventSystem;
     public void LoadPlayGame()
     {
         SceneManager.LoadScene("WhiteBox");
@@ -52,7 +55,9 @@ public class MainMenu : MonoBehaviour
     {
         pause.SetActive(true);
         isPaused = true;
+        eventSystem.sendNavigationEvents = false;
         Time.timeScale = 0;
+        
     }
 
     public void LoadContinueGame()
@@ -60,5 +65,6 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1;
         isPaused = false;
         pause.SetActive(false);
+        eventSystem.sendNavigationEvents = true;
     }
 }
