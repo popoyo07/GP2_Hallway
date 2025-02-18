@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
 {
     public void LoadPlayGame()
     {
-        SceneManager.LoadScene("LevelTesting");
+        SceneManager.LoadScene("WhiteBox");
     }
 
     public void LoadMain()

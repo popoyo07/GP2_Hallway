@@ -75,6 +75,7 @@ public class BossNavigation : MonoBehaviour
 
     private void endGame()
     {
+        // need to add more things for when 
         gameOver.SetActive(true);
         Destroy(gameObject);
     }
