@@ -1,31 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using System.Net;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class PauseBehavior : MonoBehaviour
 {
     public GameObject pause;
     private bool isPaused;
-    public void LoadPlayGame()
-    {
-        SceneManager.LoadScene("WhiteBox");
-    }
 
-    public void LoadMain()
+    private void Update()
     {
-        SceneManager.LoadScene("MainMenu");
-    }
-    public void LoadQuitGame()
-    {
-        Application.Quit();
-    }
-
-    void Update()
-    {
-       
         if (isPaused != true)
         {
             if (Input.GetKeyDown(KeyCode.P))
@@ -37,7 +21,7 @@ public class MainMenu : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.P))
             {
-                LoadContinueGame();
+                continueGame();
             }
         }
 
@@ -45,9 +29,8 @@ public class MainMenu : MonoBehaviour
         {
             Application.Quit();
         }
+       
     }
-
-
     void pauseGame()
     {
         pause.SetActive(true);
@@ -55,10 +38,11 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void LoadContinueGame()
+    public void continueGame()
     {
         Time.timeScale = 1;
         isPaused = false;
         pause.SetActive(false);
     }
+    
 }
