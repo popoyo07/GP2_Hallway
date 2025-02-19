@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c490dfba77cf4154a90462f689ab51d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArtPrototype: 0
   controller: {fileID: 8296070314496514021}
   cam: {fileID: 2717210817946136568}
   staminaSlider: {fileID: 0}

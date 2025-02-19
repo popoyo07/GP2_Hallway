@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public bool ArtPrototype = false;
     public CharacterController controller;
     public Transform cam;
     public Slider staminaSlider;
@@ -15,6 +16,7 @@ public class Player : MonoBehaviour
     public float standingCamHeight = 0.4f;
     private Vector3 originalCenter;
     private bool isSprinting = false;
+    private float fixedY;
 
     [Header("Stamina")]
     public float maxStamina = 60f;
@@ -54,6 +56,8 @@ public class Player : MonoBehaviour
             slideSlider.maxValue = slideCooldown;
             slideSlider.value = slideCooldown;
         }
+
+        fixedY = transform.position.y;
     }
 
     // Update is called once per frame
@@ -65,8 +69,11 @@ public class Player : MonoBehaviour
             staminaSlider.value = currentStamina;
         }
 
-        float timeLastSlide = Time.time - lastSlide;
-        slideSlider.value = Mathf.Clamp(timeLastSlide, 0, slideCooldown);
+        if (slideSlider != null)
+        {
+            float timeLastSlide = Time.time - lastSlide;
+            slideSlider.value = Mathf.Clamp(timeLastSlide, 0, slideCooldown);
+        }
     }
 
     void Movement()
@@ -103,12 +110,21 @@ public class Player : MonoBehaviour
             isSprinting = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && Time.time > lastSlide + slideCooldown)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && Time.time > lastSlide + slideCooldown && ArtPrototype == false)
         {
             StartCoroutine(Slide());
         }
 
         StaminaRegen();
+
+        if(ArtPrototype == true)
+        {
+            // keep y value the same so player can't walk up meshes
+            Vector3 fixedPosition = transform.position;
+            fixedPosition.y = fixedY;
+            transform.position = fixedPosition;
+        }
+
     }
 
     IEnumerator Slide()
