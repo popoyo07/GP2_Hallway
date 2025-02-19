@@ -844,7 +844,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1195967796719699412}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: LoadPlayGame
+        m_MethodName: LoadContinueGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1238,6 +1238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause: {fileID: 2082656394282055022}
+  eventSystem: {fileID: 0}
 --- !u!1 &6795109048300926037
 GameObject:
   m_ObjectHideFlags: 0
