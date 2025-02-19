@@ -10,7 +10,10 @@ public class BossNavigation : MonoBehaviour
     private NavMeshAgent agent;
     public Transform[] waypoints;
 
-    
+    [Header(" Patrol ")]
+    [SerializeField] private float chaseSpeed;
+    [SerializeField] private float patrolSpeed;
+
 
     [SerializeField] LayerMask playerLayers;
     
@@ -35,6 +38,7 @@ public class BossNavigation : MonoBehaviour
         // Get Line of Sight from child object 
         LOS = GetComponentInChildren<LineOfSight>();
 
+        agent.speed = patrolSpeed;
 
         Patroling();
     }
@@ -71,6 +75,7 @@ public class BossNavigation : MonoBehaviour
     {
         // Chase Player
         agent.destination = player.transform.position;
+        agent.speed = chaseSpeed;
     }
 
     private void endGame()
