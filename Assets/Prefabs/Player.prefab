@@ -151,19 +151,21 @@ MonoBehaviour:
   controller: {fileID: 8296070314496514021}
   cam: {fileID: 2717210817946136568}
   staminaSlider: {fileID: 0}
+  slideSlider: {fileID: 0}
   speed: 5
   sprintSpeed: 10
-  proneSpeed: 2.5
   standingHeight: 2
-  proneHeight: 0.3
-  isProne: 0
   standingCamHeight: 0.4
-  proneCamHeight: -0.5
   maxStamina: 30
   currentStamina: 0
   staminaDrain: 20
   staminaRegenSpeed: 10
   staminaDelay: 2
+  proneHeight: 0.3
+  proneCamHeight: -0.5
+  slideSpeed: 7
+  slideLength: 1
+  slideCooldown: 2
   hasCoffe: 0
 --- !u!1 &7944983981090056068
 GameObject:

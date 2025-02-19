@@ -8,14 +8,11 @@ public class Player : MonoBehaviour
     public CharacterController controller;
     public Transform cam;
     public Slider staminaSlider;
+    public Slider slideSlider;
     public float speed = 5f;
     public float sprintSpeed = 10f;
-    public float proneSpeed = 2.5f;
     public float standingHeight = 2f;
-    public float proneHeight = 0.5f;
-    public bool isProne = false;
     public float standingCamHeight = 0.4f;
-    public float proneCamHeight = -0.5f;
     private Vector3 originalCenter;
     private bool isSprinting = false;
 
@@ -26,6 +23,15 @@ public class Player : MonoBehaviour
     public float staminaRegenSpeed = 10f;
     public float staminaDelay = 2f;
     private float recentSprint;
+
+    [Header("Sliding")]
+    public float proneHeight = 0.5f;
+    public float proneCamHeight = -0.5f;
+    private bool isSliding = false;
+    public float slideSpeed = 7f;
+    public float slideLength = 0.5f;
+    public float slideCooldown = 2f;
+    private float lastSlide;
 
     // For future refference 
     public bool hasCoffe = false;
@@ -42,17 +48,25 @@ public class Player : MonoBehaviour
         cam.localPosition = cameraPosition;
 
         currentStamina = maxStamina;
+
+        if (slideSlider != null)
+        {
+            slideSlider.maxValue = slideCooldown;
+            slideSlider.value = slideCooldown;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         Movement();
-        Crouching();
         if (staminaSlider != null)
         {
             staminaSlider.value = currentStamina;
         }
+
+        float timeLastSlide = Time.time - lastSlide;
+        slideSlider.value = Mathf.Clamp(timeLastSlide, 0, slideCooldown);
     }
 
     void Movement()
@@ -61,7 +75,7 @@ public class Player : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
-        if(isProne == false)
+        if(isSliding == false)
         {
             if (isSprinting == true && currentStamina > 0)
             {
@@ -77,13 +91,9 @@ public class Player : MonoBehaviour
    
             }
         }
-        else if (isProne == true)
-        {
-            controller.Move(move * proneSpeed * Time.deltaTime);
-        }
+        
 
-
-        if(Input.GetKeyDown(KeyCode.LeftShift) && isProne == false && currentStamina > 0)
+        if(Input.GetKeyDown(KeyCode.LeftShift) && isSliding == false && currentStamina > 0)
         {
             isSprinting = true;
         }
@@ -93,27 +103,42 @@ public class Player : MonoBehaviour
             isSprinting = false;
         }
 
+        if (Input.GetKeyDown(KeyCode.LeftControl) && Time.time > lastSlide + slideCooldown)
+        {
+            StartCoroutine(Slide());
+        }
+
         StaminaRegen();
     }
 
-    void Crouching()
+    IEnumerator Slide()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        isSliding = true;
+        lastSlide = Time.time;
+
+        float originalHeight = controller.height;
+        controller.height = proneHeight;
+
+        Vector3 originalCenter = controller.center;
+        controller.center = new Vector3(originalCenter.x, originalCenter.y - (standingHeight - proneHeight) / 2f, originalCenter.z);
+
+        float originalCamHeight = cam.localPosition.y;
+        cam.localPosition = new Vector3(cam.localPosition.x, proneCamHeight, cam.localPosition.z);
+
+        Vector3 slideDirection = transform.forward;
+        float slideStartTime = Time.time;
+
+        while (Time.time < slideStartTime + slideLength)
         {
-            isProne = !isProne;
+            controller.Move(slideDirection * slideSpeed * Time.deltaTime);
+            yield return null;
         }
 
-        float targetHeight = isProne ? proneHeight : standingHeight;
-        controller.height = targetHeight;
+        controller.height = originalHeight;
+        controller.center = originalCenter;
+        cam.localPosition = new Vector3(cam.localPosition.x, originalCamHeight, cam.localPosition.z);
 
-        float centerY = originalCenter.y - (standingHeight - targetHeight) / 2f;
-        controller.center = new Vector3(originalCenter.x, centerY, originalCenter.z);
-
-        // This cam change took me forver to figure out im not gonna touch it
-        float targetCamHeight = isProne ? proneCamHeight : standingCamHeight;
-        Vector3 cameraPosition = cam.localPosition;
-        cameraPosition.y = targetCamHeight;
-        cam.localPosition = cameraPosition;
+        isSliding = false;
     }
 
     void StaminaRegen()
