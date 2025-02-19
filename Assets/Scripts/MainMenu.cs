@@ -55,6 +55,7 @@ public class MainMenu : MonoBehaviour
     {
         pause.SetActive(true);
         isPaused = true;
+        Cursor.lockState = CursorLockMode.None;
         eventSystem.sendNavigationEvents = false;
         Time.timeScale = 0;
         
@@ -64,6 +65,7 @@ public class MainMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         isPaused = false;
+        Cursor.lockState = CursorLockMode.Locked;
         pause.SetActive(false);
         eventSystem.sendNavigationEvents = true;
     }

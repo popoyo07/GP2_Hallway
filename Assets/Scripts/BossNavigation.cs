@@ -77,6 +77,7 @@ public class BossNavigation : MonoBehaviour
     {
         // need to add more things for when 
         gameOver.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
         Destroy(gameObject);
     }
 
