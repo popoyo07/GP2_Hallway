@@ -150,9 +150,44 @@ public class Player : MonoBehaviour
             yield return null;
         }
 
+        float raycastDistance = standingHeight - proneHeight + 0.1f;
+        int layerMask = LayerMask.GetMask("Table");
+
+        while (true)
+        {
+            Vector3 raycastStart = cam.position; 
+
+            RaycastHit hit;
+            if (Physics.Raycast(raycastStart, Vector3.up, out hit, raycastDistance, layerMask))
+            {
+
+                float x = Input.GetAxis("Horizontal");
+                float z = Input.GetAxis("Vertical");
+                Vector3 move = transform.right * x + transform.forward * z;
+                controller.Move(move * speed * Time.deltaTime);
+
+                cam.localPosition = new Vector3(cam.localPosition.x, proneCamHeight, cam.localPosition.z);
+            }
+            else
+            {
+                cam.localPosition = new Vector3(cam.localPosition.x, standingCamHeight, cam.localPosition.z);
+
+                Vector3 pushDirection = transform.forward * 0.2f;
+                controller.Move(pushDirection);
+
+                break;
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                break;
+            }
+
+            yield return null;
+        }
+
         controller.height = originalHeight;
         controller.center = originalCenter;
-        cam.localPosition = new Vector3(cam.localPosition.x, originalCamHeight, cam.localPosition.z);
 
         isSliding = false;
     }
