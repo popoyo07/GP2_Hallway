@@ -2437,7 +2437,7 @@ GameObject:
   - component: {fileID: 303039380}
   - component: {fileID: 303039379}
   - component: {fileID: 303039378}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Desk (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2542,7 +2542,7 @@ GameObject:
   - component: {fileID: 329075531}
   - component: {fileID: 329075530}
   - component: {fileID: 329075529}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Desk (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4801,7 +4801,7 @@ GameObject:
   - component: {fileID: 672270264}
   - component: {fileID: 672270263}
   - component: {fileID: 672270262}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Desk (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6933,7 +6933,7 @@ GameObject:
   - component: {fileID: 933088001}
   - component: {fileID: 933088000}
   - component: {fileID: 933087999}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Desk (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8237,7 +8237,7 @@ GameObject:
   - component: {fileID: 1161233211}
   - component: {fileID: 1161233210}
   - component: {fileID: 1161233209}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Desk (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8478,7 +8478,7 @@ GameObject:
   - component: {fileID: 1197412997}
   - component: {fileID: 1197412996}
   - component: {fileID: 1197412995}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Desk (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9690,7 +9690,7 @@ GameObject:
   - component: {fileID: 1316167789}
   - component: {fileID: 1316167788}
   - component: {fileID: 1316167787}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Desk (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10005,7 +10005,7 @@ GameObject:
   - component: {fileID: 1370274233}
   - component: {fileID: 1370274232}
   - component: {fileID: 1370274231}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Desk (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10110,7 +10110,7 @@ GameObject:
   - component: {fileID: 1371690932}
   - component: {fileID: 1371690931}
   - component: {fileID: 1371690930}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Desk (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10530,7 +10530,7 @@ GameObject:
   - component: {fileID: 1430361918}
   - component: {fileID: 1430361917}
   - component: {fileID: 1430361916}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Desk (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13636,7 +13636,7 @@ GameObject:
   - component: {fileID: 1930062546}
   - component: {fileID: 1930062545}
   - component: {fileID: 1930062544}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Desk (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14829,7 +14829,7 @@ GameObject:
   - component: {fileID: 2097350486}
   - component: {fileID: 2097350485}
   - component: {fileID: 2097350484}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Desk (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
