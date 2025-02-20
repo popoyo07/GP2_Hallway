@@ -261,8 +261,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  chaseSpeed: 12
-  patrolSpeed: 8
+  chaseSpeed: 10
+  patrolSpeed: 6
   enemyAngularSpeed: 500
   playerLayers:
     serializedVersion: 2

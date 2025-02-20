@@ -7,6 +7,7 @@ public class Machine : MonoBehaviour
 {
     private GameObject player;
 
+   
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -21,6 +22,7 @@ public class Machine : MonoBehaviour
         }
         else
         {
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("WIN");
         }
     }

@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour
     public EventSystem eventSystem;
     public void LoadPlayGame()
     {
-        SceneManager.LoadScene("WhiteBox");
+        SceneManager.LoadScene("ArtPrototype");
     }
 
     public void LoadMain()
