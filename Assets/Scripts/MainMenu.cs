@@ -14,11 +14,12 @@ public class MainMenu : MonoBehaviour
     public EventSystem eventSystem;
     public void LoadPlayGame()
     {
-        SceneManager.LoadScene("ArtPrototype");
+        SceneManager.LoadScene("WhiteBox");
     }
 
     public void LoadMain()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
     public void LoadQuitGame()

@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 08526e51c5527ea449291d3c1a7d9efe
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/WhiteBox.unity
     guid: a5c4ae51c5afad44a8a8b6a31a97cf0f
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/WIN.unity
     guid: 5ae32fa3f4ccaf944a17cf2b040a149f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ArtPrototype.unity
     guid: ddd7a42ffe562f346a5cf38c09c6b274
   m_configObjects: {}
