@@ -8,21 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 08526e51c5527ea449291d3c1a7d9efe
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PlayerTest.unity
     guid: 32b2f6132c144314087541fe7aac8700
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: Assets/Scenes/Credits.unity
-    guid: f1f05784f1597ce4fadd5a1e6e98c1b5
   - enabled: 1
     path: Assets/Scenes/WhiteBox.unity
     guid: a5c4ae51c5afad44a8a8b6a31a97cf0f
-  - enabled: 1
-    path: Assets/Scenes/LevelTesting.unity
-    guid: 103681e3f557ac846b1701c48fb4f007
   - enabled: 1
     path: Assets/Scenes/WIN.unity
     guid: 5ae32fa3f4ccaf944a17cf2b040a149f

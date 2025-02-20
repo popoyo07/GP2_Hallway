@@ -4153,8 +4153,8 @@ Transform:
   m_GameObject: {fileID: 500209611}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 12}
+  m_LocalPosition: {x: -21.9, y: 0, z: 0}
+  m_LocalScale: {x: 6.069677, y: 1, z: 12}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -7770,7 +7770,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1056280795}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Desks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12141,7 +12141,7 @@ GameObject:
   - component: {fileID: 1680354182}
   - component: {fileID: 1680354181}
   - component: {fileID: 1680354180}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BreakRoomTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13049,6 +13049,10 @@ PrefabInstance:
     - target: {fileID: 933339250893800045, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
       propertyPath: patrolSpeed
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 933339250893800045, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
+      propertyPath: enemyAngularSpeed
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 933339250893800045, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
       propertyPath: waypoints.Array.size
@@ -14288,7 +14292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8475025988982123120, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -70.9968
+      value: -61.7
       objectReference: {fileID: 0}
     - target: {fileID: 8475025988982123120, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14333,7 +14337,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 445442180913658193, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.3
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 445442180913658193, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14341,7 +14345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 445442180913658193, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20.4
+      value: -49.31
       objectReference: {fileID: 0}
     - target: {fileID: 445442180913658193, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14375,6 +14379,10 @@ PrefabInstance:
       propertyPath: gameOver
       value: 
       objectReference: {fileID: 337874328}
+    - target: {fileID: 933339250893800045, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
+      propertyPath: enemyAngularSpeed
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 933339250893800045, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
       propertyPath: waypoints.Array.size
       value: 9

@@ -13,6 +13,7 @@ public class BossNavigation : MonoBehaviour
     [Header(" Patrol ")]
     [SerializeField] private float chaseSpeed;
     [SerializeField] private float patrolSpeed;
+    [SerializeField] private float enemyAngularSpeed;
 
 
     [SerializeField] LayerMask playerLayers;
@@ -39,6 +40,9 @@ public class BossNavigation : MonoBehaviour
         LOS = GetComponentInChildren<LineOfSight>();
 
         agent.speed = patrolSpeed;
+        agent.angularSpeed = enemyAngularSpeed;
+        agent.acceleration = 100f;
+        agent.stoppingDistance = .5f;
 
         Patroling();
     }
@@ -48,11 +52,12 @@ public class BossNavigation : MonoBehaviour
      
         if (LOS.canChase)
         {
-        
+            agent.speed = chaseSpeed;
             Chase();
         }
         else
         {
+            agent.speed = patrolSpeed;
             Patroling();
         }
 
@@ -73,9 +78,17 @@ public class BossNavigation : MonoBehaviour
 
     private void Chase()
     {
-        // Chase Player
-        agent.destination = player.transform.position;
-        agent.speed = chaseSpeed;
+        if (player != null)
+        {
+            // Chase Player
+            agent.SetDestination(player.transform.position);
+
+            // increase rotation speed 
+            Vector3 direction = (player.transform.position - transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z ));
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
+        }
+
     }
 
     private void endGame()
