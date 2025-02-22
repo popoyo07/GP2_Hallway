@@ -10,6 +10,11 @@ public class BossNavigation : MonoBehaviour
     private NavMeshAgent agent;
     public Transform[] waypoints;
 
+    private AudioSource enemyCatch;
+    [SerializeField] private AudioClip catchSound;
+
+    private IEnumerator waitForCoroutine;
+
     [Header(" Patrol ")]
     [SerializeField] private float chaseSpeed;
     [SerializeField] private float patrolSpeed;
@@ -27,7 +32,9 @@ public class BossNavigation : MonoBehaviour
            
         if (other.transform.tag == "Player")
         {
-            endGame();
+            agent.enabled = false;
+            enemyCatch.clip = catchSound;
+            StartCoroutine(waitForCoroutine);
         }
         
     }
@@ -35,6 +42,11 @@ public class BossNavigation : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
+
+        waitForCoroutine = waitFor(100f);
+        // sound control
+        enemyCatch = GetComponent<AudioSource>();
+
 
         // Get Line of Sight from child object 
         LOS = GetComponentInChildren<LineOfSight>();
@@ -91,12 +103,18 @@ public class BossNavigation : MonoBehaviour
 
     }
 
+    IEnumerator waitFor(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        endGame();
+    }
     private void endGame()
     {
         // need to add more things for when 
+     
         gameOver.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
-        Destroy(gameObject);
+       // Destroy(gameObject);
     }
 
 

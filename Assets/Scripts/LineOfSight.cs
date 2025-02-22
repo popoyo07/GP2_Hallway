@@ -10,6 +10,7 @@ public class LineOfSight : MonoBehaviour
     public GameObject player;
     public bool canChase;
 
+
     [Header("Raycast Settings")]
     public LayerMask obstacleLayer; // Layer for obstacles 
     public LayerMask playerLayer;
@@ -45,20 +46,24 @@ public class LineOfSight : MonoBehaviour
                 if(!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleLayer))
                 {
                     canChase = true;
+                   
                 }
                 else
                 {
                     canChase = false;
+               
                 }
             } 
             else
             {
                 canChase = false;
+                
             }
         }
         else if (canChase)
         {
             canChase = false;
+            
         }
     }
 
