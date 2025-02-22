@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 13471440046322796}
   m_Layer: 0
   m_Name: 'MusicControler '
-  m_TagString: Untagged
+  m_TagString: Music
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,7 +48,8 @@ MonoBehaviour:
   mainMenuMusic: {fileID: 8300000, guid: 320bdfd769f8f3e47ab79fcc05ef6619, type: 3}
   levelMusic: {fileID: 8300000, guid: 6deac7f747e7cf349a70177170e6a5f3, type: 3}
   winMusic: {fileID: 0}
-  gameOverMusic: {fileID: 0}
+  gameOverMusic: {fileID: 8300000, guid: 86e1be4647857cd469e25e56a5cc326d, type: 3}
+  end: 0
   pauseController: {fileID: 0}
 --- !u!82 &13471440046322796
 AudioSource:

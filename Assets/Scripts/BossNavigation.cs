@@ -12,6 +12,8 @@ public class BossNavigation : MonoBehaviour
 
     private AudioSource enemyCatch;
     [SerializeField] private AudioClip catchSound;
+    public bool playerCaught;
+    public GameObject gameMusic;
 
     private IEnumerator waitForCoroutine;
 
@@ -32,8 +34,10 @@ public class BossNavigation : MonoBehaviour
            
         if (other.transform.tag == "Player")
         {
-            agent.enabled = false;
+            playerCaught = true;
+            agent.isStopped = true;
             enemyCatch.clip = catchSound;
+            enemyCatch.Play();
             StartCoroutine(waitForCoroutine);
         }
         
@@ -43,9 +47,11 @@ public class BossNavigation : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
 
-        waitForCoroutine = waitFor(100f);
+        waitForCoroutine = waitFor(4f);
         // sound control
         enemyCatch = GetComponent<AudioSource>();
+       
+        
 
 
         // Get Line of Sight from child object 
@@ -62,12 +68,12 @@ public class BossNavigation : MonoBehaviour
     void Update()
     {
      
-        if (LOS.canChase)
+        if (LOS.canChase && !playerCaught)
         {
             agent.speed = chaseSpeed;
             Chase();
         }
-        else
+        else if (!playerCaught)
         {
             agent.speed = patrolSpeed;
             Patroling();
@@ -103,6 +109,7 @@ public class BossNavigation : MonoBehaviour
 
     }
 
+    // Used IEnumerator to dealy the game over screen execution
     IEnumerator waitFor(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
@@ -111,10 +118,12 @@ public class BossNavigation : MonoBehaviour
     private void endGame()
     {
         // need to add more things for when 
-     
+        gameMusic.GetComponent<MusicControlelr>().GameOver(); // calls and executes 
+
+
         gameOver.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
-       // Destroy(gameObject);
+       
     }
 
 

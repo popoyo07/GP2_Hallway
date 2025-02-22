@@ -13,6 +13,9 @@ public class MusicControlelr : MonoBehaviour
     [SerializeField] private AudioClip winMusic;
     [SerializeField] private AudioClip gameOverMusic;
     private AudioSource gameAudio;
+    public bool end;
+
+
 
     public GameObject pauseController;
 
@@ -29,34 +32,41 @@ public class MusicControlelr : MonoBehaviour
 
     private void PlayMusic()
     {
-        if (sceneName == "MainMenu")
-        {
-            gameAudio.clip = mainMenuMusic;
-            gameAudio.Play();
+       // plays music depending on which scne we are 
+            if (sceneName == "MainMenu")
+            {
+                gameAudio.clip = mainMenuMusic;
+                gameAudio.loop = true;
 
-        } else if (sceneName == "WhiteBox")
-        {
-            gameAudio.clip = levelMusic;
-            gameAudio.Play();
+                gameAudio.Play();
 
-        }
-        else if (sceneName == "WIN")
-        {
-            gameAudio.clip = winMusic;
-            gameAudio.Play();
+            }
+            else if (sceneName == "WhiteBox")
+            {
+                gameAudio.clip = levelMusic;
+                gameAudio.loop = true;
+
+                gameAudio.Play();
+
+            }
+            else if (sceneName == "WIN")
+            {
+
+                gameAudio.clip = winMusic;
+                gameAudio.loop = true;
+
+                gameAudio.Play();
 
 
-        }
-        else if (sceneName == "GameOver")
-        {
-            gameAudio.clip = gameOverMusic;
-            gameAudio.Play();
-
-
-        }
+            }
+        
     }
-
-
+    public void GameOver()
+    {
+        gameAudio.clip = gameOverMusic;
+        gameAudio.loop = true;
+        gameAudio.Play();
+    }
 
 }
 

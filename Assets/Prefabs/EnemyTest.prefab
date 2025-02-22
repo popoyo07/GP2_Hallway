@@ -114,7 +114,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 445442180913658193}
-  - component: {fileID: 7855548571877727035}
   - component: {fileID: 5512308408800956517}
   - component: {fileID: 2245364955901453274}
   - component: {fileID: 6550850785437079252}
@@ -145,33 +144,6 @@ Transform:
   - {fileID: 6579443799428104750}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &7855548571877727035
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7351916747090328542}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!33 &5512308408800956517
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -263,6 +235,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   catchSound: {fileID: 8300000, guid: e2ec3ec98a94c1b43b17f4d429760fa1, type: 3}
+  playerCaught: 0
+  gameMusic: {fileID: 1200442021572461834, guid: 812e090a4eebe7748b74664c064e41c2, type: 3}
   chaseSpeed: 10
   patrolSpeed: 6
   enemyAngularSpeed: 500
