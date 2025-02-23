@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
     // For future refference 
     public bool hasCoffe = false;
 
+    public bool noMove = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,7 +65,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        if (!noMove)
+        {
+            Movement();
+        } 
+
+        
         if (staminaSlider != null)
         {
             staminaSlider.value = currentStamina;

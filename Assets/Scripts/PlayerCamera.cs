@@ -8,6 +8,7 @@ public class PlayerCamera : MonoBehaviour
     public float sensitivity = 300f;
     public Transform player;
     private float xRotation = 0f;
+    private GameObject thePlayer;
     
     // track enemy and lsoe condition
     [Header(" Enemy ")]
@@ -19,6 +20,7 @@ public class PlayerCamera : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        thePlayer = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -37,7 +39,7 @@ public class PlayerCamera : MonoBehaviour
 
         if (enemy.GetComponent<BossNavigation>().playerCaught) // checking for the playerCaught bool in other script 
         {
-            
+            thePlayer.GetComponent<Player>().noMove = true;
             player.LookAt(enemy.transform.position); // turn to look at enemy
           // misisng a way to lock palyer position so they dont move. 
         }
