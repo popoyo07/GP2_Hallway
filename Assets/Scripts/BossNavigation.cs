@@ -35,6 +35,7 @@ public class BossNavigation : MonoBehaviour
         if (other.transform.tag == "Player")
         {
             playerCaught = true;
+            transform.LookAt(player.transform.position);
             agent.isStopped = true;
             enemyCatch.clip = catchSound;
             enemyCatch.Play();
@@ -114,6 +115,7 @@ public class BossNavigation : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         endGame();
+        //Destroy(gameObject);
     }
     private void endGame()
     {
