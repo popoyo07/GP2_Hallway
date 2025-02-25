@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class Machine : MonoBehaviour
 {
     private GameObject player;
+    private GameObject ui;
 
    
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        ui = GameObject.FindGameObjectWithTag("UI");
     }
 
 
@@ -22,8 +24,8 @@ public class Machine : MonoBehaviour
         }
         else
         {
-            Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene("WIN");
+
+            ui.GetComponent<MainMenu>().LoadWin();
         }
     }
  

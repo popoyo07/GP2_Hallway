@@ -9,6 +9,7 @@ using UnityEngine.EventSystems;
 public class MainMenu : MonoBehaviour
 {
     public GameObject pause;
+    public GameObject win;
     private bool isPaused;
 
     public EventSystem eventSystem;
@@ -69,5 +70,12 @@ public class MainMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         pause.SetActive(false);
         eventSystem.sendNavigationEvents = true;
+    }
+
+    public void LoadWin()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        win.SetActive(true);
+
     }
 }
