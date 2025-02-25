@@ -7,7 +7,7 @@ public class BossNavigation : MonoBehaviour
 {
     [SerializeField] private GameObject gameOver;
     private GameObject player;
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
     public Transform[] waypoints;
 
     private AudioSource enemyCatch;

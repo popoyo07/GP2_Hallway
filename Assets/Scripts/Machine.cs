@@ -7,12 +7,14 @@ public class Machine : MonoBehaviour
 {
     private GameObject player;
     private GameObject ui;
+    private GameObject enemy;
 
    
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         ui = GameObject.FindGameObjectWithTag("UI");
+        enemy = GameObject.Find("EnemyTest");
     }
 
 
@@ -26,6 +28,7 @@ public class Machine : MonoBehaviour
         {
 
             ui.GetComponent<MainMenu>().LoadWin();
+            enemy.GetComponent<BossNavigation>().agent.isStopped = true;
         }
     }
  
