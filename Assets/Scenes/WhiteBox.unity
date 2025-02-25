@@ -2836,6 +2836,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 5974817688531258460, guid: 5712227fbaf221c43975341154aa8bd7, type: 3}
+      propertyPath: m_TagString
+      value: UI
+      objectReference: {fileID: 0}
     - target: {fileID: 7072915499462456178, guid: 5712227fbaf221c43975341154aa8bd7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadContinueGame
@@ -14401,7 +14405,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8475025988982123120, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.04
+      value: 47.7
       objectReference: {fileID: 0}
     - target: {fileID: 8475025988982123120, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
       propertyPath: m_LocalRotation.w
