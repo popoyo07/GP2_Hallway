@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class Player : MonoBehaviour
     private Vector3 originalCenter;
     private bool isSprinting = false;
     private float fixedY;
+    private PlayerControls controls;
+    private Vector2 moveInput;
 
     [Header("Stamina")]
     public float maxStamina = 60f;
@@ -85,48 +88,27 @@ public class Player : MonoBehaviour
 
     void Movement()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
 
-        Vector3 move = transform.right * x + transform.forward * z;
-        if(isSliding == false)
+        if (!isSliding)
         {
-            if (isSprinting == true && currentStamina > 0)
+            if (isSprinting && currentStamina > 0)
             {
                 controller.Move(move * sprintSpeed * Time.deltaTime);
                 currentStamina -= staminaDrain * Time.deltaTime;
                 recentSprint = Time.time;
             }
-            
-            else 
+            else
             {
                 isSprinting = false;
                 controller.Move(move * speed * Time.deltaTime);
-   
             }
-        }
-        
-
-        if(Input.GetKeyDown(KeyCode.LeftShift) && isSliding == false && currentStamina > 0)
-        {
-            isSprinting = true;
-        }
-
-        if(Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            isSprinting = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftControl) && Time.time > lastSlide + slideCooldown && ArtPrototype == false)
-        {
-            StartCoroutine(Slide());
         }
 
         StaminaRegen();
 
-        if(ArtPrototype == true)
+        if (ArtPrototype)
         {
-            // keep y value the same so player can't walk up meshes
             Vector3 fixedPosition = transform.position;
             fixedPosition.y = fixedY;
             transform.position = fixedPosition;
@@ -208,6 +190,40 @@ public class Player : MonoBehaviour
             //Limit stamina
             currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
 
+        }
+    }
+
+    private void Awake()
+    {
+        controls = new PlayerControls();
+
+        // Set up movement input
+        controls.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        controls.Player.Move.canceled += ctx => moveInput = Vector2.zero;
+
+        // Sprinting input
+        controls.Player.Sprint.started += ctx => isSprinting = true;
+        controls.Player.Sprint.canceled += ctx => isSprinting = false;
+
+        // Sliding input
+        controls.Player.Slide.started += ctx => TrySlide();
+    }
+
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
+
+    private void TrySlide()
+    {
+        if (Time.time > lastSlide + slideCooldown && !ArtPrototype)
+        {
+            StartCoroutine(Slide());
         }
     }
 }
