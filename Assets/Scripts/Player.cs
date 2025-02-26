@@ -32,11 +32,15 @@ public class Player : MonoBehaviour
     [Header("Sliding")]
     public float proneHeight = 0.5f;
     public float proneCamHeight = -0.5f;
-    private bool isSliding = false;
+    public bool isSliding = false;
     public float slideSpeed = 7f;
     public float slideLength = 0.5f;
     public float slideCooldown = 2f;
     private float lastSlide;
+
+    [Header("SFX")]
+    private AudioSource sfx;
+    public AudioClip slideSFX;
 
     // For future refference 
     public bool hasCoffe = false;
@@ -46,6 +50,9 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sfx = GetComponent<AudioSource>();
+        
+
         controller = GetComponent<CharacterController>();
         
         originalCenter = controller.center;
@@ -223,6 +230,9 @@ public class Player : MonoBehaviour
     {
         if (Time.time > lastSlide + slideCooldown && !ArtPrototype)
         {
+            // playsfx sound
+            sfx.clip = slideSFX;
+            sfx.Play();
             StartCoroutine(Slide());
         }
     }
