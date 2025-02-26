@@ -197,15 +197,15 @@ public class Player : MonoBehaviour
     {
         controls = new PlayerControls();
 
-        // Set up movement input
+        
         controls.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         controls.Player.Move.canceled += ctx => moveInput = Vector2.zero;
 
-        // Sprinting input
+        
         controls.Player.Sprint.started += ctx => isSprinting = true;
         controls.Player.Sprint.canceled += ctx => isSprinting = false;
 
-        // Sliding input
+        
         controls.Player.Slide.started += ctx => TrySlide();
     }
 

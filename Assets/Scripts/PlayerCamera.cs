@@ -52,7 +52,7 @@ public class PlayerCamera : MonoBehaviour
             }
         }
 
-        if (isUsingMouse == true)
+        /*if (isUsingMouse == true)
         {
             Debug.Log("Is Using Mouse");
         }
@@ -60,7 +60,7 @@ public class PlayerCamera : MonoBehaviour
         else
         {
             Debug.Log("Is Using Controller");
-        }
+        } */
         
     }
 
@@ -72,7 +72,6 @@ public class PlayerCamera : MonoBehaviour
         {
             lookInput = ctx.ReadValue<Vector2>();
 
-            // Detect if the input is coming from a mouse
             isUsingMouse = ctx.control.device is Mouse;
         };
 
