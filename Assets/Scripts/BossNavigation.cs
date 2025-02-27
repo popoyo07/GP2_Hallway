@@ -79,16 +79,14 @@ public class BossNavigation : MonoBehaviour
         if (LOS.canChase && !playerCaught)
         {
             agent.speed = chaseSpeed;
-            gameMusic.GetComponent<MusicControlelr>().PlayLevelMusic();
-            pSprite.SetBool("isChased", true);
+            
             Chase();
         }
-        else if (!LOS.canChase && !playerCaught)
+        else if (!LOS.canChase && !playerCaught && agent.remainingDistance < 0.2f)
         {
             agent.speed = patrolSpeed;
             Patroling();
-            gameMusic.GetComponent<MusicControlelr>().ResumeMusic();
-            pSprite.SetBool("isChased", false);
+           
         }
     }
 
@@ -96,6 +94,9 @@ public class BossNavigation : MonoBehaviour
 
     private void Patroling()
     {
+        gameMusic.GetComponent<MusicControlelr>().ResumeMusic();
+        pSprite.SetBool("isChased", false);
+        Debug.Log("this is not chased");
         // Chose a random waypoint to move next
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
@@ -109,9 +110,11 @@ public class BossNavigation : MonoBehaviour
     {
         if (player != null)
         {
+            gameMusic.GetComponent<MusicControlelr>().PChaseMusic();
+            pSprite.SetBool("isChased", true);
             // Chase Player
             agent.SetDestination(player.transform.position);
-
+            Debug.Log("this is chased");
             // increase rotation speed 
             Vector3 direction = (player.transform.position - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z ));
@@ -133,6 +136,8 @@ public class BossNavigation : MonoBehaviour
         gameMusic.GetComponent<MusicControlelr>().GameOver(); // calls and executes 
 
         pSprite.SetBool("dead", true);
+      
+
         gameOver.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
        
