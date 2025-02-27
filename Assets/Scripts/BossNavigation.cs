@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+//using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,14 +16,18 @@ public class BossNavigation : MonoBehaviour
     public bool playerCaught;
     public GameObject gameMusic;
 
-    private IEnumerator waitForCoroutine;
+   // private IEnumerator waitForCoroutine;
 
     [Header(" Patrol ")]
     [SerializeField] private float chaseSpeed;
     [SerializeField] private float patrolSpeed;
     [SerializeField] private float enemyAngularSpeed;
 
-
+    [Header(" UI Animation ")]
+    public GameObject playerSprite;
+    public Animator pSprite;
+ 
+ 
     [SerializeField] LayerMask playerLayers;
     
     private int waypointIndex;
@@ -39,7 +44,7 @@ public class BossNavigation : MonoBehaviour
             agent.isStopped = true;
             enemyCatch.clip = catchSound;
             enemyCatch.Play();
-            StartCoroutine(waitForCoroutine);
+            StartCoroutine(WaitFor(4f));
         }
         
     }
@@ -48,12 +53,15 @@ public class BossNavigation : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
 
-        waitForCoroutine = waitFor(4f);
+        //waitForCoroutine = waitFor(4f);
         // sound control
         enemyCatch = GetComponent<AudioSource>();
-       
+        // music = GameObject.FindWithTag("Music");
         
 
+        // Player Sprite animator
+        playerSprite = GameObject.Find("PlayerSprite");
+        pSprite = playerSprite.GetComponent<Animator>();
 
         // Get Line of Sight from child object 
         LOS = GetComponentInChildren<LineOfSight>();
@@ -68,18 +76,20 @@ public class BossNavigation : MonoBehaviour
     
     void Update()
     {
-     
         if (LOS.canChase && !playerCaught)
         {
             agent.speed = chaseSpeed;
+            gameMusic.GetComponent<MusicControlelr>().PlayLevelMusic();
+            pSprite.SetBool("isChased", true);
             Chase();
         }
-        else if (!playerCaught)
+        else if (!LOS.canChase && !playerCaught)
         {
             agent.speed = patrolSpeed;
             Patroling();
+            gameMusic.GetComponent<MusicControlelr>().ResumeMusic();
+            pSprite.SetBool("isChased", false);
         }
-
     }
 
  
@@ -111,7 +121,7 @@ public class BossNavigation : MonoBehaviour
     }
 
     // Used IEnumerator to dealy the game over screen execution
-    IEnumerator waitFor(float waitTime)
+    IEnumerator WaitFor(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
         endGame();
@@ -122,7 +132,7 @@ public class BossNavigation : MonoBehaviour
         // need to add more things for when 
         gameMusic.GetComponent<MusicControlelr>().GameOver(); // calls and executes 
 
-
+        pSprite.SetBool("dead", true);
         gameOver.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
        

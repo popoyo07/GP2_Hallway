@@ -657,7 +657,7 @@ GameObject:
   - component: {fileID: 5470572710941049490}
   - component: {fileID: 4342402235864582407}
   m_Layer: 5
-  m_Name: Image
+  m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -241,6 +241,8 @@ MonoBehaviour:
   chaseSpeed: 10
   patrolSpeed: 6
   enemyAngularSpeed: 500
+  playerSprite: {fileID: 0}
+  pSprite: {fileID: 0}
   playerLayers:
     serializedVersion: 2
     m_Bits: 8
@@ -264,8 +266,8 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  radius: 15
-  angel: 120
+  radius: 20
+  angel: 180
 --- !u!65 &4194742920783605047
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -299,13 +301,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 790687ed7c7de7c4983b3b455ea5a5ee, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.17
   m_Pitch: 0.57
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 203
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -343,7 +345,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

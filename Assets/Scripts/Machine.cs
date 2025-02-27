@@ -8,13 +8,17 @@ public class Machine : MonoBehaviour
     private GameObject player;
     private GameObject ui;
     private GameObject enemy;
+    public bool pWin;
 
+    private GameObject musicController;
+    
    
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         ui = GameObject.FindGameObjectWithTag("UI");
         enemy = GameObject.Find("EnemyTest");
+        musicController = GameObject.FindWithTag("Music");
     }
 
 
@@ -26,7 +30,7 @@ public class Machine : MonoBehaviour
         }
         else
         {
-
+            musicController.GetComponent<MusicControlelr>().PWinMusic();
             ui.GetComponent<MainMenu>().LoadWin();
             enemy.GetComponent<BossNavigation>().agent.isStopped = true;
         }

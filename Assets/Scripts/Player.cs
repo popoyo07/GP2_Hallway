@@ -228,12 +228,15 @@ public class Player : MonoBehaviour
 
     private void TrySlide()
     {
-        if (Time.time > lastSlide + slideCooldown && !ArtPrototype)
-        {
-            // playsfx sound
-            sfx.clip = slideSFX;
-            sfx.Play();
-            StartCoroutine(Slide());
-        }
+        //if (!noMove)
+        //{
+            if (Time.time > lastSlide + slideCooldown && !ArtPrototype)
+            {
+                // playsfx sound
+                sfx.clip = slideSFX;
+                sfx.Play();
+                StartCoroutine(Slide());
+            }
+        //}
     }
 }

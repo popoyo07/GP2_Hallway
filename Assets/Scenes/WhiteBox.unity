@@ -6509,6 +6509,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 171247628}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &906106924 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4342402235864582407, guid: 5712227fbaf221c43975341154aa8bd7, type: 3}
+  m_PrefabInstance: {fileID: 337874327}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &915457454
 GameObject:
   m_ObjectHideFlags: 0
@@ -7390,7 +7395,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 13471440046322796, guid: 812e090a4eebe7748b74664c064e41c2, type: 3}
       propertyPath: m_Volume
-      value: 0.486
+      value: 0.224
       objectReference: {fileID: 0}
     - target: {fileID: 1200442021572461834, guid: 812e090a4eebe7748b74664c064e41c2, type: 3}
       propertyPath: m_Name
@@ -7399,7 +7404,7 @@ PrefabInstance:
     - target: {fileID: 1516029793572912558, guid: 812e090a4eebe7748b74664c064e41c2, type: 3}
       propertyPath: gameOverMusic
       value: 
-      objectReference: {fileID: 8300000, guid: 86e1be4647857cd469e25e56a5cc326d, type: 3}
+      objectReference: {fileID: 8300000, guid: 790687ed7c7de7c4983b3b455ea5a5ee, type: 3}
     - target: {fileID: 8289502569234545494, guid: 812e090a4eebe7748b74664c064e41c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -13049,6 +13054,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 933339250893800045, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
+      propertyPath: pSprite
+      value: 
+      objectReference: {fileID: 906106924}
+    - target: {fileID: 933339250893800045, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
       propertyPath: gameOver
       value: 
       objectReference: {fileID: 337874328}
@@ -13056,6 +13065,10 @@ PrefabInstance:
       propertyPath: gameMusic
       value: 
       objectReference: {fileID: 2098942799}
+    - target: {fileID: 933339250893800045, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
+      propertyPath: catchSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 790687ed7c7de7c4983b3b455ea5a5ee, type: 3}
     - target: {fileID: 933339250893800045, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
       propertyPath: chaseSpeed
       value: 12
@@ -13108,6 +13121,14 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[8]
       value: 
       objectReference: {fileID: 1165290314}
+    - target: {fileID: 5691132564656846345, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691132564656846345, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7351916747090328542, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
       propertyPath: m_Name
       value: EnemyTest
@@ -14305,6 +14326,14 @@ PrefabInstance:
       propertyPath: staminaSlider
       value: 
       objectReference: {fileID: 1118238652}
+    - target: {fileID: 8011635715155204120, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011635715155204120, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
+      propertyPath: BypassReverbZones
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8475025988982123120, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.7933342
