@@ -12,24 +12,19 @@ public class PauseBehavior : MonoBehaviour
     {
         if (isPaused != true)
         {
-            if (Input.GetKeyDown(KeyCode.P))
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
             {
                 pauseGame();
             }
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.P))
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
             {
                 continueGame();
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-       
     }
     void pauseGame()
     {
