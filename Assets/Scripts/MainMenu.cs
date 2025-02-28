@@ -28,6 +28,10 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    private void Awake()
+    {
+        Screen.SetResolution(1920, 1080, true);
+    }
     void Update()
     {
        
