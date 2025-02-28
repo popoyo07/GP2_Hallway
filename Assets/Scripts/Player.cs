@@ -228,8 +228,8 @@ public class Player : MonoBehaviour
 
     private void TrySlide()
     {
-        //if (!noMove)
-        //{
+        if (!noMove)
+        {
             if (Time.time > lastSlide + slideCooldown && !ArtPrototype)
             {
                 // playsfx sound
@@ -237,6 +237,6 @@ public class Player : MonoBehaviour
                 sfx.Play();
                 StartCoroutine(Slide());
             }
-        //}
+        }
     }
 }

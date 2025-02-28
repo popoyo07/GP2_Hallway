@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+
 //using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.AI;
@@ -39,12 +41,19 @@ public class BossNavigation : MonoBehaviour
            
         if (other.transform.tag == "Player")
         {
+            //Cursor.lockState = false;
+            player.GetComponent<Player>().noMove = true;
             playerCaught = true;
             transform.LookAt(player.transform.position);
             agent.isStopped = true;
             enemyCatch.clip = catchSound;
             enemyCatch.Play();
             StartCoroutine(WaitFor(4f));
+        }
+
+        if (other.transform.tag == "Break")
+        {
+            Patroling();
         }
         
     }

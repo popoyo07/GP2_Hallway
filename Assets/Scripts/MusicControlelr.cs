@@ -57,7 +57,7 @@ public class MusicControlelr : MonoBehaviour
             gameAudio.loop = true;
             gameAudio.Play();
         }
-        else if (sceneName == "WhiteBox")
+        else if (sceneName == "WhiteBox" || sceneName == "WhiteBoxCopy")
         {
             PlayLevelMusic();
         }
