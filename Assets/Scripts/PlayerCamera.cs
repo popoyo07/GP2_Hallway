@@ -17,7 +17,7 @@ public class PlayerCamera : MonoBehaviour
 
     // track enemy and lsoe condition
     [Header(" Enemy ")]
-    [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject LookAtPoint;
 
     //private Vector3 locking;
 
@@ -42,12 +42,13 @@ public class PlayerCamera : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         player.Rotate(Vector3.up * mouseX);
         
-        if(enemy != null)
+        if(LookAtPoint != null)
         {
-            if (enemy.GetComponent<BossNavigation>().playerCaught) // checking for the playerCaught bool in other script 
+            if (LookAtPoint.GetComponent<BossNavigation>().playerCaught) // checking for the playerCaught bool in other script 
             {
+                player.LookAt(LookAtPoint.transform.position); // turn to look at enemy
+                Cursor.lockState = CursorLockMode.None;
                 thePlayer.GetComponent<Player>().noMove = true;
-                player.LookAt(enemy.transform.position); // turn to look at enemy
                                                          // misisng a way to lock palyer position so they dont move. 
             }
         }

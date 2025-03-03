@@ -41,7 +41,7 @@ public class BossNavigation : MonoBehaviour
            
         if (other.transform.tag == "Player")
         {
-            //Cursor.lockState = false;
+          
             player.GetComponent<Player>().noMove = true;
             playerCaught = true;
             transform.LookAt(player.transform.position);
@@ -121,6 +121,7 @@ public class BossNavigation : MonoBehaviour
         {
             gameMusic.GetComponent<MusicControlelr>().PChaseMusic();
             pSprite.SetBool("isChased", true);
+            transform.LookAt(player.transform.position);
             // Chase Player
             agent.SetDestination(player.transform.position);
             Debug.Log("this is chased");

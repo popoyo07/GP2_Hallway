@@ -451,6 +451,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f56ac4f1a47d8a4eb638f5608d618cf, type: 3}
+--- !u!1 &900911199 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4884330145980109268, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
+  m_PrefabInstance: {fileID: 1856585059}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &906106924 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4342402235864582407, guid: 5712227fbaf221c43975341154aa8bd7, type: 3}
@@ -620,71 +625,33 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7944983981090056068, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
   m_PrefabInstance: {fileID: 2005886059}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1294288968 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2717210817946136568, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
-  m_PrefabInstance: {fileID: 2005886059}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1294288972
-MonoBehaviour:
+--- !u!54 &1294288976
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1294288967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 1294288968}
-  volumeLayer:
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 8
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 0
-  antialiasingMode: 0
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 0
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
 --- !u!4 &1417171804 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6527355915566072290, guid: 1f56ac4f1a47d8a4eb638f5608d618cf, type: 3}
@@ -928,20 +895,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyTest
       objectReference: {fileID: 0}
-    - target: {fileID: 7351916747090328542, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
---- !u!1 &1861399015 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7351916747090328542, guid: 1aa0503fef187cf46a4d1578d368425c, type: 3}
-  m_PrefabInstance: {fileID: 1856585059}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2005886059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -953,30 +911,22 @@ PrefabInstance:
     - target: {fileID: 1300757406980281750, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
       propertyPath: enemy
       value: 
-      objectReference: {fileID: 1861399015}
+      objectReference: {fileID: 900911199}
     - target: {fileID: 2767502259367177765, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3539540356441094789, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
       propertyPath: m_Height
-      value: 2.2394075
-      objectReference: {fileID: 0}
-    - target: {fileID: 3539540356441094789, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
-      propertyPath: m_Center.y
-      value: -1.3802962
+      value: 3.53
       objectReference: {fileID: 0}
     - target: {fileID: 7169907426188013236, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
       propertyPath: staminaSlider
       value: 
       objectReference: {fileID: 1118238652}
-    - target: {fileID: 8011635715155204120, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8011635715155204120, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
-      propertyPath: BypassReverbZones
-      value: 0
+    - target: {fileID: 8296070314496514021, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
+      propertyPath: m_Height
+      value: 3.53
       objectReference: {fileID: 0}
     - target: {fileID: 8475025988982123120, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1018,13 +968,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3539540356441094789, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7944983981090056068, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1294288972}
+      addedObject: {fileID: 1294288976}
   m_SourcePrefab: {fileID: 100100000, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
 --- !u!1 &2098942799 stripped
 GameObject:
