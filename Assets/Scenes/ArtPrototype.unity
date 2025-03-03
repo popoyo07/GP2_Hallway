@@ -1304,6 +1304,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e863a24c9cb24c04bbc3dee2bef3cf6e, type: 3}
+--- !u!1 &239239471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8557c068a7dc09749860336edb6beded, type: 3}
+  m_PrefabInstance: {fileID: 540976710}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1777065582}
+  - component: {fileID: 1777065584}
+  - component: {fileID: 1777065583}
+  m_Layer: 0
+  m_Name: Coffee Maker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &243968969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8291,11 +8309,71 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f7995ee95ac0df4da502f8e12fd0028, type: 3}
---- !u!4 &1777065582 stripped
+--- !u!4 &1777065582
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8557c068a7dc09749860336edb6beded, type: 3}
   m_PrefabInstance: {fileID: 540976710}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239239471}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.66425806, y: 0.24240713, z: 0.24240705, w: 0.6642581}
+  m_LocalPosition: {x: -8.45, y: -0.223665, z: -7.142}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 493650693}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 40.097}
+--- !u!23 &1777065583
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 8557c068a7dc09749860336edb6beded, type: 3}
+  m_PrefabInstance: {fileID: 540976710}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239239471}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: f83dc77f4be27b54299e46a83fc8e5fc, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1777065584
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: -5754084199372789682, guid: 8557c068a7dc09749860336edb6beded, type: 3}
+  m_PrefabInstance: {fileID: 540976710}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239239471}
+  m_Mesh: {fileID: -203833213550273535, guid: 8557c068a7dc09749860336edb6beded, type: 3}
 --- !u!4 &1787584881 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e863a24c9cb24c04bbc3dee2bef3cf6e, type: 3}
@@ -9451,6 +9529,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b74a46d790ce85946a91b0e081781e37, type: 3}
+--- !u!1001 &2015578136
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 3534c6906d63f2a4baa3ad6030dac088, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.7170625
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3534c6906d63f2a4baa3ad6030dac088, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2601159
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3534c6906d63f2a4baa3ad6030dac088, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.382823
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3534c6906d63f2a4baa3ad6030dac088, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3534c6906d63f2a4baa3ad6030dac088, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3534c6906d63f2a4baa3ad6030dac088, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3534c6906d63f2a4baa3ad6030dac088, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3534c6906d63f2a4baa3ad6030dac088, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3534c6906d63f2a4baa3ad6030dac088, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3534c6906d63f2a4baa3ad6030dac088, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3534c6906d63f2a4baa3ad6030dac088, type: 3}
+      propertyPath: m_Name
+      value: coffeMachine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3534c6906d63f2a4baa3ad6030dac088, type: 3}
 --- !u!4 &2020137402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 60facefcfcc610a45ae5bcf0274548ef, type: 3}
@@ -10248,3 +10383,4 @@ SceneRoots:
   - {fileID: 1649346115}
   - {fileID: 1299674570}
   - {fileID: 1810687511}
+  - {fileID: 2015578136}
