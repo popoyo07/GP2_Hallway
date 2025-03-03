@@ -71,19 +71,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc676a47e98bebc47bc99f7f99498501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOver: {fileID: 0}
+  levelUI: {fileID: 0}
   agent: {fileID: 0}
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  catchSound: {fileID: 8300000, guid: e2ec3ec98a94c1b43b17f4d429760fa1, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  catchSound: {fileID: 8300000, guid: 790687ed7c7de7c4983b3b455ea5a5ee, type: 3}
   playerCaught: 0
-  gameMusic: {fileID: 1200442021572461834, guid: 812e090a4eebe7748b74664c064e41c2, type: 3}
-  chaseSpeed: 10
-  patrolSpeed: 6
-  enemyAngularSpeed: 500
+  gameMusic: {fileID: 0}
+  chaseSpeed: 12
+  patrolSpeed: 8
+  enemyAngularSpeed: 400
   playerSprite: {fileID: 0}
   pSprite: {fileID: 0}
   playerLayers:

@@ -8,7 +8,7 @@ using UnityEngine.AI;
 
 public class BossNavigation : MonoBehaviour
 {
-    [SerializeField] private GameObject gameOver;
+    [SerializeField] private GameObject levelUI;
     private GameObject player;
     public NavMeshAgent agent;
     public Transform[] waypoints;
@@ -146,9 +146,7 @@ public class BossNavigation : MonoBehaviour
 
         pSprite.SetBool("dead", true);
       
-
-        gameOver.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
+        levelUI.GetComponent<MainMenu>().TheGameOverUI();
        
     }
 

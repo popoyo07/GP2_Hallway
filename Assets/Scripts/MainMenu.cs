@@ -10,6 +10,9 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject pause;
     public GameObject win;
+    public GameObject gameOver;
+    public GameObject staminaSlider;
+    public GameObject playerSprite;
     private bool isPaused;
 
     public EventSystem eventSystem;
@@ -59,6 +62,8 @@ public class MainMenu : MonoBehaviour
 
     void pauseGame()
     {
+        staminaSlider.SetActive(false);
+        playerSprite.SetActive(false);
         pause.SetActive(true);
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
@@ -69,6 +74,8 @@ public class MainMenu : MonoBehaviour
 
     public void LoadContinueGame()
     {
+        staminaSlider.SetActive(true);
+        playerSprite.SetActive(true);
         Time.timeScale = 1;
         isPaused = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -78,8 +85,19 @@ public class MainMenu : MonoBehaviour
 
     public void LoadWin()
     {
+        staminaSlider.SetActive(false);
+        playerSprite.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         win.SetActive(true);
+
+    }
+
+    public void TheGameOverUI()
+    {
+        staminaSlider.SetActive(false);
+        playerSprite.SetActive(false);
+        gameOver.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
 
     }
 
