@@ -7,6 +7,7 @@ public class Machine : MonoBehaviour
 {
     private GameObject player;
     private GameObject ui;
+    [SerializeField] GameObject objectiveInfo;
     private GameObject enemy;
     public bool pWin;
 
@@ -26,7 +27,9 @@ public class Machine : MonoBehaviour
     {
         if (player.GetComponent<Player>().hasCoffe != true)
         {
+            ui.GetComponent<MainMenu>().hideUI();
             Debug.Log("You need the coffe");
+            objectiveInfo.SetActive(true);
         }
         else
         {
@@ -35,5 +38,18 @@ public class Machine : MonoBehaviour
             enemy.GetComponent<BossNavigation>().agent.isStopped = true;
         }
     }
- 
+    private void OnTriggerExit(Collider other)
+    {
+        if (player.GetComponent<Player>().hasCoffe != true)
+        {
+            objectiveInfo.SetActive(false);
+            ui.GetComponent<MainMenu>().UnHideUI();
+            Debug.Log("player exit trigger");
+        }
+
+    }
+
+
+
+
 }

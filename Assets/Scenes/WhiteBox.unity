@@ -130,25 +130,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5865932359386729103, guid: ed9ad0a5bd90d4249b7a2ecc5c220356, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.1679
-      objectReference: {fileID: 0}
-    - target: {fileID: 5865932359386729103, guid: ed9ad0a5bd90d4249b7a2ecc5c220356, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.2032018
-      objectReference: {fileID: 0}
-    - target: {fileID: 5865932359386729103, guid: ed9ad0a5bd90d4249b7a2ecc5c220356, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2851571
-      objectReference: {fileID: 0}
+    - target: {fileID: 5128924227909831411, guid: ed9ad0a5bd90d4249b7a2ecc5c220356, type: 3}
+      propertyPath: objectiveInfo
+      value: 
+      objectReference: {fileID: 242990498}
     - target: {fileID: 5865932359386729103, guid: ed9ad0a5bd90d4249b7a2ecc5c220356, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.38041
       objectReference: {fileID: 0}
     - target: {fileID: 5865932359386729103, guid: ed9ad0a5bd90d4249b7a2ecc5c220356, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.15
+      value: 2.293
       objectReference: {fileID: 0}
     - target: {fileID: 5865932359386729103, guid: ed9ad0a5bd90d4249b7a2ecc5c220356, type: 3}
       propertyPath: m_LocalPosition.z
@@ -186,22 +178,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoffeMachine
       objectReference: {fileID: 0}
-    - target: {fileID: 8061409964487020125, guid: ed9ad0a5bd90d4249b7a2ecc5c220356, type: 3}
-      propertyPath: m_Height
-      value: 1.7376546
-      objectReference: {fileID: 0}
-    - target: {fileID: 8061409964487020125, guid: ed9ad0a5bd90d4249b7a2ecc5c220356, type: 3}
-      propertyPath: m_Radius
-      value: 1.489469
-      objectReference: {fileID: 0}
-    - target: {fileID: 8061409964487020125, guid: ed9ad0a5bd90d4249b7a2ecc5c220356, type: 3}
-      propertyPath: m_Center.x
-      value: 0.3746489
-      objectReference: {fileID: 0}
-    - target: {fileID: 8061409964487020125, guid: ed9ad0a5bd90d4249b7a2ecc5c220356, type: 3}
-      propertyPath: m_Center.z
-      value: -0.1313509
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -211,6 +187,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 9076713451839244465, guid: 1f56ac4f1a47d8a4eb638f5608d618cf, type: 3}
   m_PrefabInstance: {fileID: 865760849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &242990498 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7280842543213318510, guid: 5712227fbaf221c43975341154aa8bd7, type: 3}
+  m_PrefabInstance: {fileID: 337874327}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &337874327
 PrefabInstance:
@@ -308,6 +289,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3963361113476170990, guid: 5712227fbaf221c43975341154aa8bd7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 51
+      objectReference: {fileID: 0}
     - target: {fileID: 4154157316780789460, guid: 5712227fbaf221c43975341154aa8bd7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -315,6 +300,18 @@ PrefabInstance:
     - target: {fileID: 5974817688531258460, guid: 5712227fbaf221c43975341154aa8bd7, type: 3}
       propertyPath: m_Name
       value: CanvasLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268447419647106305, guid: 5712227fbaf221c43975341154aa8bd7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 303
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280842543213318510, guid: 5712227fbaf221c43975341154aa8bd7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7852837107053705909, guid: 5712227fbaf221c43975341154aa8bd7, type: 3}
+      propertyPath: m_text
+      value: Find the coffee beans at the storage room !!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -350,7 +347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400999123728720380, guid: 1f56ac4f1a47d8a4eb638f5608d618cf, type: 3}
       propertyPath: m_Shadows.m_Type
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7190798356621401381, guid: 1f56ac4f1a47d8a4eb638f5608d618cf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -847,10 +844,6 @@ PrefabInstance:
       value: -1.3802962
       objectReference: {fileID: 0}
     - target: {fileID: 7169907426188013236, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
-      propertyPath: proneHeight
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7169907426188013236, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
       propertyPath: staminaSlider
       value: 
       objectReference: {fileID: 1118238652}
@@ -868,11 +861,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8475025988982123120, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.56
+      value: 1.88
       objectReference: {fileID: 0}
     - target: {fileID: 8475025988982123120, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -67.18
+      value: -74.1
       objectReference: {fileID: 0}
     - target: {fileID: 8475025988982123120, guid: dfba334df9447b84ba1f4f499d76adcc, type: 3}
       propertyPath: m_LocalRotation.w

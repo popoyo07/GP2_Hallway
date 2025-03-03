@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8705238b6fb16e419bb9821b18e4e82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectiveInfo: {fileID: 0}
   pWin: 0
 --- !u!136 &8061409964487020125
 CapsuleCollider:
@@ -66,10 +67,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.0501248
-  m_Height: 1.6725079
+  m_Radius: 1.489469
+  m_Height: 1.7376546
   m_Direction: 1
-  m_Center: {x: 0.37814853, y: -0.12977451, z: 0.0028114184}
+  m_Center: {x: 0.3746489, y: -0.12977451, z: -0.1313509}
 --- !u!1001 &4238724016872186581
 PrefabInstance:
   m_ObjectHideFlags: 0

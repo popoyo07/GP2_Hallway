@@ -62,8 +62,8 @@ public class MainMenu : MonoBehaviour
 
     void pauseGame()
     {
-        staminaSlider.SetActive(false);
-        playerSprite.SetActive(false);
+        hideUI();
+
         pause.SetActive(true);
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
@@ -74,8 +74,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadContinueGame()
     {
-        staminaSlider.SetActive(true);
-        playerSprite.SetActive(true);
+        UnHideUI();
         Time.timeScale = 1;
         isPaused = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -85,8 +84,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadWin()
     {
-        staminaSlider.SetActive(false);
-        playerSprite.SetActive(false);
+        hideUI();
         Cursor.lockState = CursorLockMode.None;
         win.SetActive(true);
 
@@ -94,11 +92,20 @@ public class MainMenu : MonoBehaviour
 
     public void TheGameOverUI()
     {
-        staminaSlider.SetActive(false);
-        playerSprite.SetActive(false);
+        hideUI();
         gameOver.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
 
     }
 
+    public void hideUI()
+    {
+        staminaSlider.SetActive(false);
+        playerSprite.SetActive(false);
+    }
+    public void UnHideUI()
+    {
+        staminaSlider.SetActive(true);
+        playerSprite.SetActive(true);
+    }
 }
