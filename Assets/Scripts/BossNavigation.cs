@@ -83,13 +83,15 @@ public class BossNavigation : MonoBehaviour
         Patroling();
     }
     
-    void Update()
+    void FixedUpdate()
     {
-        if (LOS.canChase && !playerCaught)
+        NavMeshHit hit;
+
+        if (LOS.canChase && !playerCaught && NavMesh.SamplePosition(player.transform.position, out hit, 1f, NavMesh.AllAreas))
         {
             agent.speed = chaseSpeed;
             
-            Chase();
+            Chase();         
         }
         else if (!LOS.canChase && !playerCaught && agent.remainingDistance < 0.2f)
         {
@@ -150,6 +152,5 @@ public class BossNavigation : MonoBehaviour
         levelUI.GetComponent<MainMenu>().TheGameOverUI();
        
     }
-
 
 }

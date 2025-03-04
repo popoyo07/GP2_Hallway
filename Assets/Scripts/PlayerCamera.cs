@@ -28,7 +28,7 @@ public class PlayerCamera : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         thePlayer = GameObject.FindWithTag("Player");
-       
+
 
     }
 
@@ -45,8 +45,8 @@ public class PlayerCamera : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         player.Rotate(Vector3.up * mouseX);
-        
-        if(LookAtPoint != null)
+
+        if (LookAtPoint != null)
         {
             if (enemy.GetComponent<BossNavigation>().playerCaught) // checking for the playerCaught bool in other script 
             {
@@ -67,7 +67,7 @@ public class PlayerCamera : MonoBehaviour
         {
             Debug.Log("Is Using Controller");
         } */
-        
+
     }
 
     private void Awake()
@@ -93,4 +93,5 @@ public class PlayerCamera : MonoBehaviour
     {
         controls.Disable();
     }
-}
+
+} 
