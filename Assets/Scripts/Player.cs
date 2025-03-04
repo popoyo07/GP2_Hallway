@@ -91,6 +91,12 @@ public class Player : MonoBehaviour
             float timeLastSlide = Time.time - lastSlide;
             slideSlider.value = Mathf.Clamp(timeLastSlide, 0, slideCooldown);
         }
+
+        if (noMove)
+        {
+            StopCoroutine(Slide());
+            StopSlide(standingHeight, originalCenter, standingCamHeight);
+        }
     }
 
     void Movement()
@@ -125,6 +131,8 @@ public class Player : MonoBehaviour
 
     IEnumerator Slide()
     {
+        if (noMove) yield break;
+
         isSliding = true;
         lastSlide = Time.time;
 
@@ -142,6 +150,12 @@ public class Player : MonoBehaviour
 
         while (Time.time < slideStartTime + slideLength)
         {
+            if (noMove)
+            {
+                StopSlide(originalHeight, originalCenter, originalCamHeight);
+                yield break;
+            }
+
             controller.Move(slideDirection * slideSpeed * Time.deltaTime);
             yield return null;
         }
@@ -151,6 +165,13 @@ public class Player : MonoBehaviour
 
         while (true)
         {
+            if (noMove == true)
+            {
+                StopSlide(originalHeight, originalCenter, originalCamHeight);
+                Debug.Log("noMove = true!");
+                yield break;
+            }
+
             Vector3 raycastStart = cam.position; 
 
             RaycastHit hit;
@@ -182,10 +203,7 @@ public class Player : MonoBehaviour
             yield return null;
         }
 
-        controller.height = originalHeight;
-        controller.center = originalCenter;
-
-        isSliding = false;
+        StopSlide(originalHeight, originalCenter, originalCamHeight);
     }
 
     void StaminaRegen()
@@ -238,5 +256,13 @@ public class Player : MonoBehaviour
                 StartCoroutine(Slide());
             }
         }
+    }
+
+    private void StopSlide(float originalHeight, Vector3 originalCenter, float originalCamHeight)
+    {
+        controller.height = originalHeight;
+        controller.center = originalCenter;
+        cam.localPosition = new Vector3(cam.localPosition.x, standingCamHeight, cam.localPosition.z);
+        isSliding = false;
     }
 }
