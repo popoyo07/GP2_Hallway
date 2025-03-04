@@ -1,0 +1,54 @@
+{
+    "name": "Cursor",
+    "maps": [
+        {
+            "name": "UI",
+            "id": "bbd60711-4e55-4413-8f93-aa0638902e30",
+            "actions": [
+                {
+                    "name": "CursorMove",
+                    "type": "Value",
+                    "id": "f4413bc0-2c31-473e-a319-f088771953eb",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "CursorMove2?",
+                    "type": "PassThrough",
+                    "id": "7444a873-7750-4da6-9380-c3e3d0128fd6",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "87fdb378-58f2-44bd-9f3c-10b4dc68eb2e",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CursorMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "43bf9149-0bd5-4ca6-9d97-250212764b49",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CursorMove2?",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
