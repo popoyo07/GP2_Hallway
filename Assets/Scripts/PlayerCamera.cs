@@ -17,7 +17,9 @@ public class PlayerCamera : MonoBehaviour
 
     // track enemy and lsoe condition
     [Header(" Enemy ")]
+    [SerializeField] private GameObject enemy;
     [SerializeField] private GameObject LookAtPoint;
+    GameObject p;
 
     //private Vector3 locking;
 
@@ -26,6 +28,8 @@ public class PlayerCamera : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         thePlayer = GameObject.FindWithTag("Player");
+       
+
     }
 
     // Update is called once per frame
@@ -44,12 +48,13 @@ public class PlayerCamera : MonoBehaviour
         
         if(LookAtPoint != null)
         {
-            if (LookAtPoint.GetComponent<BossNavigation>().playerCaught) // checking for the playerCaught bool in other script 
+            if (enemy.GetComponent<BossNavigation>().playerCaught) // checking for the playerCaught bool in other script 
             {
                 player.LookAt(LookAtPoint.transform.position); // turn to look at enemy
                 Cursor.lockState = CursorLockMode.None;
                 thePlayer.GetComponent<Player>().noMove = true;
-                                                         // misisng a way to lock palyer position so they dont move. 
+                thePlayer.GetComponent<Player>().speed = 0;
+                this.enabled = false;                      // Disable the script so the player cannot move camera when caught 
             }
         }
 
