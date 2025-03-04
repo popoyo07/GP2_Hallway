@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8475025988982123120}
   - component: {fileID: 1752459080146416598}
-  - component: {fileID: 3539540356441094789}
   - component: {fileID: 8296070314496514021}
   - component: {fileID: 7169907426188013236}
   - component: {fileID: 8011635715155204120}
@@ -45,29 +44,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2767502259367177765}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &3539540356441094789
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2767502259367177765}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &8296070314496514021
 CharacterController:
   m_ObjectHideFlags: 0
@@ -87,11 +63,11 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_Height: 1.43
+  m_Radius: 0.1
+  m_SlopeLimit: 0
   m_StepOffset: 0.3
-  m_SkinWidth: 0.001
+  m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7169907426188013236
@@ -111,8 +87,8 @@ MonoBehaviour:
   cam: {fileID: 2717210817946136568}
   staminaSlider: {fileID: 0}
   slideSlider: {fileID: 0}
-  speed: 5
-  sprintSpeed: 10
+  speed: 3
+  sprintSpeed: 4
   standingHeight: 2
   standingCamHeight: 0.4
   maxStamina: 30
@@ -121,10 +97,10 @@ MonoBehaviour:
   staminaRegenSpeed: 10
   staminaDelay: 2
   proneHeight: 0.3
-  proneCamHeight: -0.5
+  proneCamHeight: -0.1
   isSliding: 0
-  slideSpeed: 7
-  slideLength: 1
+  slideSpeed: 3
+  slideLength: 0.5
   slideCooldown: 2
   slideSFX: {fileID: 8300000, guid: e36385c1301f26346b8c7979b3cf1ea0, type: 3}
   hasCoffe: 0
@@ -238,6 +214,7 @@ GameObject:
   - component: {fileID: 3135212267535892629}
   - component: {fileID: 1300757406980281750}
   - component: {fileID: 6727071818835621102}
+  - component: {fileID: 1359871787194652701}
   m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -334,7 +311,7 @@ MonoBehaviour:
   sensitivity: 300
   mouseSensitivityMultiplier: 0.1
   player: {fileID: 8475025988982123120}
-  enemy: {fileID: 0}
+  LookAtPoint: {fileID: 0}
 --- !u!114 &6727071818835621102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,3 +372,30 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!54 &1359871787194652701
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7944983981090056068}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0

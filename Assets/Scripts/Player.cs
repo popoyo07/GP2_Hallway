@@ -140,7 +140,7 @@ public class Player : MonoBehaviour
         controller.height = proneHeight;
 
         Vector3 originalCenter = controller.center;
-        controller.center = new Vector3(originalCenter.x, originalCenter.y - (standingHeight - proneHeight) / 2f, originalCenter.z);
+        controller.center = new Vector3(originalCenter.x, originalCenter.y -.5f, originalCenter.z); // made it so there is an off set of 0.5 when sliding (Miguel)
 
         float originalCamHeight = cam.localPosition.y;
         cam.localPosition = new Vector3(cam.localPosition.x, proneCamHeight, cam.localPosition.z);

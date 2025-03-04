@@ -84,9 +84,9 @@ MonoBehaviour:
   catchSound: {fileID: 8300000, guid: 790687ed7c7de7c4983b3b455ea5a5ee, type: 3}
   playerCaught: 0
   gameMusic: {fileID: 0}
-  chaseSpeed: 0
-  patrolSpeed: 0
-  enemyAngularSpeed: 0
+  chaseSpeed: 4
+  patrolSpeed: 2
+  enemyAngularSpeed: 400
   playerSprite: {fileID: 0}
   pSprite: {fileID: 0}
   playerLayers:
@@ -103,17 +103,17 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 790687ed7c7de7c4983b3b455ea5a5ee, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 6
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
