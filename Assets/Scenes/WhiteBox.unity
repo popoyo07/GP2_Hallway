@@ -516,17 +516,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 13471440046322796, guid: 812e090a4eebe7748b74664c064e41c2, type: 3}
-      propertyPath: MaxDistance
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 1200442021572461834, guid: 812e090a4eebe7748b74664c064e41c2, type: 3}
       propertyPath: m_Name
       value: 'MusicControler '
-      objectReference: {fileID: 0}
-    - target: {fileID: 5055854307044649108, guid: 812e090a4eebe7748b74664c064e41c2, type: 3}
-      propertyPath: MaxDistance
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8289502569234545494, guid: 812e090a4eebe7748b74664c064e41c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1163,6 +1155,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7121607342784397644, guid: e4734c1ba5368ef499460818fd22c2f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182866295766087063, guid: e4734c1ba5368ef499460818fd22c2f0, type: 3}
+      propertyPath: Loop
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
