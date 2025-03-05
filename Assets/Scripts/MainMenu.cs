@@ -72,10 +72,9 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-        void pauseGame()
+    void pauseGame()
     {
         hideUI();
-
         pause.SetActive(true);
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
