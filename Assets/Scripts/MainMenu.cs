@@ -5,6 +5,7 @@ using System.Net;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class MainMenu : MonoBehaviour
 {
@@ -17,6 +18,28 @@ public class MainMenu : MonoBehaviour
     private bool isPaused;
 
     public EventSystem eventSystem;
+
+    public PlayerControls controls;
+
+    [Header("First Selected Buttons")]
+    public GameObject pauseBack;
+    public GameObject controlBack;
+    public GameObject winPlayAgain;
+    public GameObject losePlayAgain;
+    public GameObject mainControlBack;
+    public GameObject mainCreditsBack;
+    public GameObject playButton;
+    public GameObject mainCreditsButton;
+    public GameObject mainControlsButton;
+
+    [Header("Menu Parents")]
+    public GameObject controlParent;
+    public GameObject pauseParent;
+    public GameObject mainControlParent;
+    public GameObject mainCreditsParent;
+    public GameObject mainMenuParent;
+
+
     public void LoadPlayGame()
     {
         SceneManager.LoadScene("WhiteBox");
@@ -35,47 +58,39 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         Screen.SetResolution(1920, 1080, true);
+        controls = new PlayerControls();
+        controls.Player.Pause.performed += _ => TogglePause();
     }
     void Update()
     {
-       
-        if (isPaused != true)
+
+        if (Input.GetKeyDown(KeyCode.Tab) && !map.activeInHierarchy)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                pauseGame();
-            }
-            if (Input.GetKeyDown(KeyCode.Tab) && !map.activeInHierarchy)
-            {
-                map.SetActive(true);
-            } 
-            else if(Input.GetKeyDown(KeyCode.Tab) && map.activeInHierarchy)
-            {
-                map.SetActive(false);
-            }
+            map.SetActive(true);
         }
-        else
+        else if (Input.GetKeyDown(KeyCode.Tab) && map.activeInHierarchy)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                LoadContinueGame();
-            }
-           
+            map.SetActive(false);
         }
 
-      
-       
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+
+        }
     }
 
-
-    void pauseGame()
+        void pauseGame()
     {
         hideUI();
 
         pause.SetActive(true);
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
-        eventSystem.sendNavigationEvents = false;
+        //controls.UI.Enable();
+        //controls.Player.Disable();
+        eventSystem.SetSelectedGameObject(pauseBack);
+        //eventSystem.sendNavigationEvents = false;
         Time.timeScale = 0;
         
     }
@@ -85,6 +100,8 @@ public class MainMenu : MonoBehaviour
         UnHideUI();
         Time.timeScale = 1;
         isPaused = false;
+        //controls.UI.Disable();
+        //controls.Player.Enable();
         Cursor.lockState = CursorLockMode.Locked;
         pause.SetActive(false);
         eventSystem.sendNavigationEvents = true;
@@ -95,6 +112,7 @@ public class MainMenu : MonoBehaviour
         hideUI();
         Cursor.lockState = CursorLockMode.None;
         win.SetActive(true);
+        eventSystem.SetSelectedGameObject(winPlayAgain);
 
     }
 
@@ -103,7 +121,7 @@ public class MainMenu : MonoBehaviour
         hideUI();
         gameOver.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
-
+        eventSystem.SetSelectedGameObject(losePlayAgain);
     }
 
     public void hideUI()
@@ -115,5 +133,82 @@ public class MainMenu : MonoBehaviour
     {
         staminaSlider.SetActive(true);
         playerSprite.SetActive(true);
+    }
+
+    public void OpenControlPause()
+    {
+        if (controlParent != null)
+        {
+            controlParent.SetActive(true);
+            eventSystem.SetSelectedGameObject(controlBack);
+        }
+    }
+
+    public void CloseControlPause()
+    {
+        if (pauseParent != null)
+        {
+            pauseParent.SetActive(true);
+            eventSystem.SetSelectedGameObject(pauseBack);
+        }
+    }
+
+    public void OpenControlMain()
+    {
+        if (mainControlParent != null)
+        {
+            mainControlParent.SetActive(true);
+            eventSystem.SetSelectedGameObject(mainControlBack);
+        }
+    }
+
+    public void CloseControlMain()
+    {
+        if (mainControlParent != null)
+        {
+            mainMenuParent.SetActive(true);
+            eventSystem.SetSelectedGameObject(mainControlsButton);
+        }
+    }
+
+    public void OpenCreditsMain()
+    {
+        if (mainCreditsParent != null)
+        {
+            mainCreditsParent.SetActive(true);
+            eventSystem.SetSelectedGameObject(mainCreditsBack);
+        }
+    }
+
+    public void CloseCreditsMain()
+    {
+        if (mainCreditsParent != null)
+        {
+            mainMenuParent.SetActive(true);
+            eventSystem.SetSelectedGameObject(mainCreditsButton);
+        }
+    }
+
+
+    private void TogglePause()
+    {
+        if (!isPaused)
+        {
+            pauseGame();
+        }
+        else
+        {
+            LoadContinueGame();
+        }
+    }
+
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
     }
 }
