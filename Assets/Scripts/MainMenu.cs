@@ -60,18 +60,10 @@ public class MainMenu : MonoBehaviour
         Screen.SetResolution(1920, 1080, true);
         controls = new PlayerControls();
         controls.Player.Pause.performed += _ => TogglePause();
+        controls.Player.Map.performed += _ => ToggleMap();
     }
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.Tab) && !map.activeInHierarchy)
-        {
-            map.SetActive(true);
-        }
-        else if (Input.GetKeyDown(KeyCode.Tab) && map.activeInHierarchy)
-        {
-            map.SetActive(false);
-        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -210,5 +202,13 @@ public class MainMenu : MonoBehaviour
     private void OnDisable()
     {
         controls.Disable();
+    }
+
+    private void ToggleMap()
+    {
+        if (!isPaused) 
+        {
+            map.SetActive(!map.activeInHierarchy);
+        }
     }
 }
