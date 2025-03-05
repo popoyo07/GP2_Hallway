@@ -49,7 +49,7 @@ MonoBehaviour:
   mainMenuMusic: {fileID: 8300000, guid: d9ecb9d4547f88d45b75153d49fc4db2, type: 3}
   levelMusic: {fileID: 8300000, guid: 4447ec83d5d97cd438ee181d48a9afbf, type: 3}
   winMusic: {fileID: 8300000, guid: 86e1be4647857cd469e25e56a5cc326d, type: 3}
-  gameOverMusic: {fileID: 8300000, guid: 790687ed7c7de7c4983b3b455ea5a5ee, type: 3}
+  gameOverMusic: {fileID: 8300000, guid: 9ebf0f29c6f8d424dbf44f906d81d354, type: 3}
   chaeMusic: {fileID: 8300000, guid: 9ebf0f29c6f8d424dbf44f906d81d354, type: 3}
   gameAudio: {fileID: 13471440046322796}
   chaseAudio: {fileID: 5055854307044649108}
