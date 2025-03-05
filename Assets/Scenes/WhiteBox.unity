@@ -1137,6 +1137,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7083071611241137401, guid: a984655309dbe6940bf9dc61e4782cef, type: 3}
+      propertyPath: collectionSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: fd24f89bca77c9d46b3b4ea6873f3570, type: 3}
     - target: {fileID: 7258785534135321427, guid: a984655309dbe6940bf9dc61e4782cef, type: 3}
       propertyPath: m_Name
       value: NewLevel
@@ -1240,7 +1244,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7182866295766087063, guid: e4734c1ba5368ef499460818fd22c2f0, type: 3}
       propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182866295766087063, guid: e4734c1ba5368ef499460818fd22c2f0, type: 3}
+      propertyPath: MaxDistance
+      value: 4.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182866295766087063, guid: e4734c1ba5368ef499460818fd22c2f0, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182866295766087063, guid: e4734c1ba5368ef499460818fd22c2f0, type: 3}
+      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8305141019855611237, guid: e4734c1ba5368ef499460818fd22c2f0, type: 3}
+      propertyPath: obstacleLayer.m_Bits
+      value: 192
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

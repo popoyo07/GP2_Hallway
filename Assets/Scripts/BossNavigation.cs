@@ -126,9 +126,10 @@ public class BossNavigation : MonoBehaviour
         {
             gameMusic.GetComponent<MusicControlelr>().PChaseMusic();
             pSprite.SetBool("isChased", true);
-            transform.LookAt(player.transform.position);
             // Chase Player
             agent.SetDestination(player.transform.position);
+            transform.LookAt(player.transform.position);
+
             Debug.Log("this is chased");
             // increase rotation speed 
             Vector3 direction = (player.transform.position - transform.position).normalized;
@@ -153,6 +154,7 @@ public class BossNavigation : MonoBehaviour
         pSprite.SetBool("dead", true);
       
         levelUI.GetComponent<MainMenu>().TheGameOverUI();
+        this.gameObject.SetActive(false);
        
     }
 
