@@ -205,6 +205,14 @@ PrefabInstance:
       propertyPath: eventSystem
       value: 
       objectReference: {fileID: 1233005534}
+    - target: {fileID: 1195967796719699412, guid: 5712227fbaf221c43975341154aa8bd7, type: 3}
+      propertyPath: winPlayAgain
+      value: 
+      objectReference: {fileID: 954998086}
+    - target: {fileID: 1195967796719699412, guid: 5712227fbaf221c43975341154aa8bd7, type: 3}
+      propertyPath: losePlayAgain
+      value: 
+      objectReference: {fileID: 1676881897}
     - target: {fileID: 1692746169978701345, guid: 5712227fbaf221c43975341154aa8bd7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -519,6 +527,11 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 4342402235864582407, guid: 5712227fbaf221c43975341154aa8bd7, type: 3}
   m_PrefabInstance: {fileID: 337874327}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &954998086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8266834157587070650, guid: 5712227fbaf221c43975341154aa8bd7, type: 3}
+  m_PrefabInstance: {fileID: 337874327}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &978174165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -722,6 +735,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 819359744}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1676881897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7690291253909488293, guid: 5712227fbaf221c43975341154aa8bd7, type: 3}
+  m_PrefabInstance: {fileID: 337874327}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1723363614
 GameObject:
   m_ObjectHideFlags: 0
