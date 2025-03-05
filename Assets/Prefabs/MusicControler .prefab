@@ -46,11 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc730a072dc0ca4c81a6d643b7cb7d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuMusic: {fileID: 8300000, guid: 320bdfd769f8f3e47ab79fcc05ef6619, type: 3}
-  levelMusic: {fileID: 8300000, guid: 6deac7f747e7cf349a70177170e6a5f3, type: 3}
+  mainMenuMusic: {fileID: 8300000, guid: d9ecb9d4547f88d45b75153d49fc4db2, type: 3}
+  levelMusic: {fileID: 8300000, guid: 4447ec83d5d97cd438ee181d48a9afbf, type: 3}
   winMusic: {fileID: 8300000, guid: 86e1be4647857cd469e25e56a5cc326d, type: 3}
   gameOverMusic: {fileID: 8300000, guid: 790687ed7c7de7c4983b3b455ea5a5ee, type: 3}
-  chaeMusic: {fileID: 8300000, guid: bf066369d9e922e458b3298eed7e4df2, type: 3}
+  chaeMusic: {fileID: 8300000, guid: 9ebf0f29c6f8d424dbf44f906d81d354, type: 3}
   gameAudio: {fileID: 13471440046322796}
   chaseAudio: {fileID: 5055854307044649108}
   end: 0
@@ -64,9 +64,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 790687ed7c7de7c4983b3b455ea5a5ee, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.504
+  m_Volume: 0.224
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -75,7 +75,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 1000
+  MaxDistance: 50
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -171,7 +171,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0

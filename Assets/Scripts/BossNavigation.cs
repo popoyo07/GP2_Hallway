@@ -28,6 +28,8 @@ public class BossNavigation : MonoBehaviour
     [Header(" UI Animation ")]
     public GameObject playerSprite;
     public Animator pSprite;
+    public GameObject enemyWalk;
+    public GameObject catchAnim;
  
  
     [SerializeField] LayerMask playerLayers;
@@ -41,14 +43,15 @@ public class BossNavigation : MonoBehaviour
            
         if (other.transform.tag == "Player")
         {
-          
+            enemyWalk.SetActive(false);
+            catchAnim.SetActive(true);
             player.GetComponent<Player>().noMove = true;
             playerCaught = true;
             transform.LookAt(player.transform.position);
             agent.isStopped = true;
             enemyCatch.clip = catchSound;
             enemyCatch.Play();
-            StartCoroutine(WaitFor(4f));
+            StartCoroutine(WaitFor(2.5f));
         }
 
         if (other.transform.tag == "Break")

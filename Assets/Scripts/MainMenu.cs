@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     public GameObject gameOver;
     public GameObject staminaSlider;
     public GameObject playerSprite;
+    public GameObject map;
     private bool isPaused;
 
     public EventSystem eventSystem;
@@ -40,23 +41,30 @@ public class MainMenu : MonoBehaviour
        
         if (isPaused != true)
         {
-            if (Input.GetKeyDown(KeyCode.P))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 pauseGame();
+            }
+            if (Input.GetKeyDown(KeyCode.Tab) && !map.activeInHierarchy)
+            {
+                map.SetActive(true);
+            } 
+            else if(Input.GetKeyDown(KeyCode.Tab) && map.activeInHierarchy)
+            {
+                map.SetActive(false);
             }
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.P))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 LoadContinueGame();
             }
+           
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
+      
+       
     }
 
 

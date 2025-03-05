@@ -117,16 +117,16 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.415
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 172
   DopplerLevel: 1
   MinDistance: 1.0107291
-  MaxDistance: 500
+  MaxDistance: 2
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -311,6 +311,7 @@ MonoBehaviour:
   sensitivity: 300
   mouseSensitivityMultiplier: 0.1
   player: {fileID: 8475025988982123120}
+  enemy: {fileID: 0}
   LookAtPoint: {fileID: 0}
 --- !u!114 &6727071818835621102
 MonoBehaviour:
