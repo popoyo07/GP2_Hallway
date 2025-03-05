@@ -29,6 +29,10 @@ public class Player : MonoBehaviour
     public float staminaDelay = 2f;
     private float recentSprint;
 
+    [Header("Stamina Bar(Graphic)")]
+    public Image staminaImage;
+    public Sprite[] staminaSprites;
+
     [Header("Sliding")]
     public float proneHeight = 0.5f;
     public float proneCamHeight = -0.5f;
@@ -70,6 +74,8 @@ public class Player : MonoBehaviour
         }
 
         fixedY = transform.position.y;
+
+        
     }
 
     // Update is called once per frame
@@ -97,6 +103,8 @@ public class Player : MonoBehaviour
             StopCoroutine(Slide());
             StopSlide(standingHeight, originalCenter, standingCamHeight);
         }
+
+        UpdateStaminaUI();
     }
 
     void Movement()
@@ -215,6 +223,7 @@ public class Player : MonoBehaviour
             //Limit stamina
             currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
 
+            UpdateStaminaUI();
         }
     }
 
@@ -264,5 +273,14 @@ public class Player : MonoBehaviour
         controller.center = originalCenter;
         cam.localPosition = new Vector3(cam.localPosition.x, standingCamHeight, cam.localPosition.z);
         isSliding = false;
+    }
+
+    void UpdateStaminaUI()
+    {
+        if (staminaSprites.Length == 0 || staminaImage == null) return;
+
+        int spriteIndex = Mathf.RoundToInt((currentStamina / maxStamina) * (staminaSprites.Length - 1));
+
+        staminaImage.sprite = staminaSprites[spriteIndex];
     }
 }
