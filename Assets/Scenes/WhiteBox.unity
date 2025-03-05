@@ -1242,26 +1242,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7182866295766087063, guid: e4734c1ba5368ef499460818fd22c2f0, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7182866295766087063, guid: e4734c1ba5368ef499460818fd22c2f0, type: 3}
-      propertyPath: MaxDistance
-      value: 4.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 7182866295766087063, guid: e4734c1ba5368ef499460818fd22c2f0, type: 3}
-      propertyPath: rolloffMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7182866295766087063, guid: e4734c1ba5368ef499460818fd22c2f0, type: 3}
-      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8305141019855611237, guid: e4734c1ba5368ef499460818fd22c2f0, type: 3}
-      propertyPath: obstacleLayer.m_Bits
-      value: 192
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
